@@ -1,0 +1,24 @@
+//
+//  MyLibrary.pch
+//  MyLibrary
+//
+//  Created by xianjunwang on 2018/3/30.
+//  Copyright © 2018年 xianjunwang. All rights reserved.
+//
+
+#ifndef MyLibrary_pch
+#define MyLibrary_pch
+
+#define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+
+
+#import "UIColor+Translate.h"
+
+#define Color_FFFFFF  [UIColor colorFromHexRGB:@"FFFFFF"]
+#define Color_87BA4B  [UIColor colorFromHexRGB:@"87BA4B"]
+
+
+#define BOLDFONT18 [UIFont boldSystemFontOfSize:18.0]
+
+#endif /* MyLibrary_pch */
