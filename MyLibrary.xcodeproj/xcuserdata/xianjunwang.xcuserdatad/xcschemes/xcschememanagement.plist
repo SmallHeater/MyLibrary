@@ -32,7 +32,17 @@
 		<key>SHCalendar.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>9</integer>
+		</dict>
+		<key>SHQRCodeLibrary.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>SHQRCodeLibrarySource.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
 		</dict>
 		<key>SHScaleControlLibrary.xcscheme</key>
 		<dict>
@@ -42,7 +52,7 @@
 		<key>SHSpeechRecognitionLibrary.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>10</integer>
 		</dict>
 		<key>SHUIImagePickerController.xcscheme</key>
 		<dict>

@@ -32,6 +32,18 @@
 		62CE0F7F2084759E00D76822 /* BPPCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0F7B2084759E00D76822 /* BPPCalendarModel.m */; };
 		62CE0F802084759E00D76822 /* BPPCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0F7C2084759E00D76822 /* BPPCalendar.m */; };
 		62CE0F8A208477D400D76822 /* libSHCalendar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CE0F672084718800D76822 /* libSHCalendar.a */; };
+		62CE0FA32084818600D76822 /* SHQRCodeLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0F9A2084818600D76822 /* SHQRCodeLibrary.m */; };
+		62CE0FA42084818600D76822 /* QRCodeAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0F9D2084818600D76822 /* QRCodeAreaView.m */; };
+		62CE0FA52084818600D76822 /* QRCodeBacgrouView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0F9F2084818600D76822 /* QRCodeBacgrouView.m */; };
+		62CE0FA62084818600D76822 /* QRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0FA22084818600D76822 /* QRCodeVC.m */; };
+		62CE0FAD2084867C00D76822 /* libSHQRCodeLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CE0F8F2084810500D76822 /* libSHQRCodeLibrary.a */; };
+		62CE0FB52084870600D76822 /* SHScanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0FB42084870600D76822 /* SHScanVC.m */; };
+		62CE0FC520848BB800D76822 /* frame_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0FC020848BB800D76822 /* frame_icon@3x.png */; };
+		62CE0FC620848BB800D76822 /* cross@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0FC120848BB800D76822 /* cross@3x.png */; };
+		62CE0FC720848BB800D76822 /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0FC220848BB800D76822 /* cross@2x.png */; };
+		62CE0FC820848BB800D76822 /* frame_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0FC320848BB800D76822 /* frame_icon@2x.png */; };
+		62CE0FC920848BB800D76822 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0FC420848BB800D76822 /* line.png */; };
+		62CE0FCA20848BC800D76822 /* SHQRCodeLibrarySource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0FBA2084886800D76822 /* SHQRCodeLibrarySource.bundle */; };
 		62D4E48F206DFDD60063491A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E48E206DFDD60063491A /* AppDelegate.m */; };
 		62D4E495206DFDD60063491A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D4E493206DFDD60063491A /* Main.storyboard */; };
 		62D4E497206DFDD60063491A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62D4E496206DFDD60063491A /* Assets.xcassets */; };
@@ -153,6 +165,13 @@
 			remoteGlobalIDString = 62CA40BD207496D90049379B;
 			remoteInfo = SHAlertViewManagerLibrary;
 		};
+		62CE0FAE2084868900D76822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62D4E482206DFDD50063491A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62CE0F8E2084810500D76822;
+			remoteInfo = SHQRCodeLibrary;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -193,6 +212,15 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		62CE0F652084718800D76822 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62CE0F8D2084810500D76822 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
@@ -266,6 +294,25 @@
 		62CE0F7C2084759E00D76822 /* BPPCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPCalendar.m; sourceTree = "<group>"; };
 		62CE0F7D2084759E00D76822 /* BPPCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPCalendarCell.h; sourceTree = "<group>"; };
 		62CE0F81208475EA00D76822 /* SHCalendar.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCalendar.pch; sourceTree = "<group>"; };
+		62CE0F8F2084810500D76822 /* libSHQRCodeLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHQRCodeLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		62CE0F992084818600D76822 /* SHQRCodeLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHQRCodeLibrary.h; sourceTree = "<group>"; };
+		62CE0F9A2084818600D76822 /* SHQRCodeLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHQRCodeLibrary.m; sourceTree = "<group>"; };
+		62CE0F9C2084818600D76822 /* QRCodeAreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeAreaView.h; sourceTree = "<group>"; };
+		62CE0F9D2084818600D76822 /* QRCodeAreaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeAreaView.m; sourceTree = "<group>"; };
+		62CE0F9E2084818600D76822 /* QRCodeBacgrouView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeBacgrouView.h; sourceTree = "<group>"; };
+		62CE0F9F2084818600D76822 /* QRCodeBacgrouView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeBacgrouView.m; sourceTree = "<group>"; };
+		62CE0FA12084818600D76822 /* QRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeVC.h; sourceTree = "<group>"; };
+		62CE0FA22084818600D76822 /* QRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeVC.m; sourceTree = "<group>"; };
+		62CE0FAC2084855A00D76822 /* QRCodeLibrary.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCodeLibrary.pch; sourceTree = "<group>"; };
+		62CE0FB32084870600D76822 /* SHScanVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHScanVC.h; sourceTree = "<group>"; };
+		62CE0FB42084870600D76822 /* SHScanVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHScanVC.m; sourceTree = "<group>"; };
+		62CE0FBA2084886800D76822 /* SHQRCodeLibrarySource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHQRCodeLibrarySource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		62CE0FBC2084886800D76822 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62CE0FC020848BB800D76822 /* frame_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_icon@3x.png"; sourceTree = "<group>"; };
+		62CE0FC120848BB800D76822 /* cross@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@3x.png"; sourceTree = "<group>"; };
+		62CE0FC220848BB800D76822 /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
+		62CE0FC320848BB800D76822 /* frame_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_icon@2x.png"; sourceTree = "<group>"; };
+		62CE0FC420848BB800D76822 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		62D4E48A206DFDD60063491A /* MyLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62D4E48D206DFDD60063491A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		62D4E48E206DFDD60063491A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -402,6 +449,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62CE0F8C2084810500D76822 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62CE0FB72084886800D76822 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62D4E487206DFDD60063491A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -410,6 +471,7 @@
 				626DFDAB20724D0000940248 /* libSHScaleControlLibrary.a in Frameworks */,
 				62D4E4EB206E0CEE0063491A /* libSHUIImagePickerController.a in Frameworks */,
 				62F8FD1720722D7500A671D0 /* libSHBigPictureBrowser.a in Frameworks */,
+				62CE0FAD2084867C00D76822 /* libSHQRCodeLibrary.a in Frameworks */,
 				62CA40D520749A560049379B /* libSHAlertViewManagerLibrary.a in Frameworks */,
 				62CA40B92073991D0049379B /* libSHWaterMarkLibrary.a in Frameworks */,
 			);
@@ -603,6 +665,59 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		62CE0F902084810500D76822 /* SHQRCodeLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				62CE0F982084818600D76822 /* Interface */,
+				62CE0F9B2084818600D76822 /* UIView */,
+				62CE0FA02084818600D76822 /* UIViewController */,
+			);
+			path = SHQRCodeLibrary;
+			sourceTree = "<group>";
+		};
+		62CE0F982084818600D76822 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				62CE0F992084818600D76822 /* SHQRCodeLibrary.h */,
+				62CE0F9A2084818600D76822 /* SHQRCodeLibrary.m */,
+				62CE0FAC2084855A00D76822 /* QRCodeLibrary.pch */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		62CE0F9B2084818600D76822 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				62CE0F9C2084818600D76822 /* QRCodeAreaView.h */,
+				62CE0F9D2084818600D76822 /* QRCodeAreaView.m */,
+				62CE0F9E2084818600D76822 /* QRCodeBacgrouView.h */,
+				62CE0F9F2084818600D76822 /* QRCodeBacgrouView.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		62CE0FA02084818600D76822 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				62CE0FA12084818600D76822 /* QRCodeVC.h */,
+				62CE0FA22084818600D76822 /* QRCodeVC.m */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		62CE0FBB2084886800D76822 /* SHQRCodeLibrarySource */ = {
+			isa = PBXGroup;
+			children = (
+				62CE0FC220848BB800D76822 /* cross@2x.png */,
+				62CE0FC120848BB800D76822 /* cross@3x.png */,
+				62CE0FC320848BB800D76822 /* frame_icon@2x.png */,
+				62CE0FC020848BB800D76822 /* frame_icon@3x.png */,
+				62CE0FC420848BB800D76822 /* line.png */,
+				62CE0FBC2084886800D76822 /* Info.plist */,
+			);
+			path = SHQRCodeLibrarySource;
+			sourceTree = "<group>";
+		};
 		62D4E481206DFDD50063491A = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +732,8 @@
 				62CA40BF207496D90049379B /* SHAlertViewManagerLibrary */,
 				629DF5882074D2DC00F9E2F1 /* SHSpeechRecognitionLibrary */,
 				62CE0F682084718800D76822 /* SHCalendar */,
+				62CE0F902084810500D76822 /* SHQRCodeLibrary */,
+				62CE0FBB2084886800D76822 /* SHQRCodeLibrarySource */,
 				62D4E48B206DFDD60063491A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -635,6 +752,8 @@
 				62CA40BE207496D90049379B /* libSHAlertViewManagerLibrary.a */,
 				629DF5872074D2DC00F9E2F1 /* libSHSpeechRecognitionLibrary.a */,
 				62CE0F672084718800D76822 /* libSHCalendar.a */,
+				62CE0F8F2084810500D76822 /* libSHQRCodeLibrary.a */,
+				62CE0FBA2084886800D76822 /* SHQRCodeLibrarySource.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -692,6 +811,8 @@
 				62D4E4C1206DFF980063491A /* ViewController.m */,
 				62CE0F75208473F700D76822 /* SHCalendarVC.h */,
 				62CE0F76208473F700D76822 /* SHCalendarVC.m */,
+				62CE0FB32084870600D76822 /* SHScanVC.h */,
+				62CE0FB42084870600D76822 /* SHScanVC.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -993,6 +1114,40 @@
 			productReference = 62CE0F672084718800D76822 /* libSHCalendar.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		62CE0F8E2084810500D76822 /* SHQRCodeLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62CE0F952084810500D76822 /* Build configuration list for PBXNativeTarget "SHQRCodeLibrary" */;
+			buildPhases = (
+				62CE0F8B2084810500D76822 /* Sources */,
+				62CE0F8C2084810500D76822 /* Frameworks */,
+				62CE0F8D2084810500D76822 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SHQRCodeLibrary;
+			productName = SHQRCodeLibrary;
+			productReference = 62CE0F8F2084810500D76822 /* libSHQRCodeLibrary.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		62CE0FB92084886800D76822 /* SHQRCodeLibrarySource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62CE0FBD2084886800D76822 /* Build configuration list for PBXNativeTarget "SHQRCodeLibrarySource" */;
+			buildPhases = (
+				62CE0FB62084886800D76822 /* Sources */,
+				62CE0FB72084886800D76822 /* Frameworks */,
+				62CE0FB82084886800D76822 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SHQRCodeLibrarySource;
+			productName = SHQRCodeLibrarySource;
+			productReference = 62CE0FBA2084886800D76822 /* SHQRCodeLibrarySource.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		62D4E489206DFDD60063491A /* MyLibrary */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62D4E4A0206DFDD60063491A /* Build configuration list for PBXNativeTarget "MyLibrary" */;
@@ -1004,6 +1159,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				62CE0FAF2084868900D76822 /* PBXTargetDependency */,
 				62CE0F872084772A00D76822 /* PBXTargetDependency */,
 				62CE0F852084772600D76822 /* PBXTargetDependency */,
 				62CE0F832084771B00D76822 /* PBXTargetDependency */,
@@ -1133,6 +1289,14 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					62CE0F8E2084810500D76822 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					62CE0FB92084886800D76822 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					62D4E489206DFDD60063491A = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -1183,11 +1347,25 @@
 				62CA40BD207496D90049379B /* SHAlertViewManagerLibrary */,
 				629DF5862074D2DC00F9E2F1 /* SHSpeechRecognitionLibrary */,
 				62CE0F662084718800D76822 /* SHCalendar */,
+				62CE0F8E2084810500D76822 /* SHQRCodeLibrary */,
+				62CE0FB92084886800D76822 /* SHQRCodeLibrarySource */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		62CE0FB82084886800D76822 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62CE0FC620848BB800D76822 /* cross@3x.png in Resources */,
+				62CE0FC920848BB800D76822 /* line.png in Resources */,
+				62CE0FC820848BB800D76822 /* frame_icon@2x.png in Resources */,
+				62CE0FC520848BB800D76822 /* frame_icon@3x.png in Resources */,
+				62CE0FC720848BB800D76822 /* cross@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62D4E488206DFDD60063491A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1198,6 +1376,7 @@
 				62D4E497206DFDD60063491A /* Assets.xcassets in Resources */,
 				62D4E53E206E3AE60063491A /* SHBigPictureBrowserSource.bundle in Resources */,
 				62D4E495206DFDD60063491A /* Main.storyboard in Resources */,
+				62CE0FCA20848BC800D76822 /* SHQRCodeLibrarySource.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1289,6 +1468,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62CE0F8B2084810500D76822 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62CE0FA62084818600D76822 /* QRCodeVC.m in Sources */,
+				62CE0FA32084818600D76822 /* SHQRCodeLibrary.m in Sources */,
+				62CE0FA42084818600D76822 /* QRCodeAreaView.m in Sources */,
+				62CE0FA52084818600D76822 /* QRCodeBacgrouView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62CE0FB62084886800D76822 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62D4E486206DFDD60063491A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1309,6 +1506,7 @@
 				62D4E57A206E593F0063491A /* SDWebImageDownloaderOperation.m in Sources */,
 				62D4E580206E593F0063491A /* UIImage+MultiFormat.m in Sources */,
 				62D4E579206E593F0063491A /* SDWebImageDownloader.m in Sources */,
+				62CE0FB52084870600D76822 /* SHScanVC.m in Sources */,
 				62D4E50A206E0DD00063491A /* SHNavigationBar.m in Sources */,
 				62D4E4C2206DFF980063491A /* ViewController.m in Sources */,
 				62CA40D4207498AC0049379B /* SHAlertViewVC.m in Sources */,
@@ -1417,6 +1615,11 @@
 			isa = PBXTargetDependency;
 			target = 62CA40BD207496D90049379B /* SHAlertViewManagerLibrary */;
 			targetProxy = 62CE0F862084772A00D76822 /* PBXContainerItemProxy */;
+		};
+		62CE0FAF2084868900D76822 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 62CE0F8E2084810500D76822 /* SHQRCodeLibrary */;
+			targetProxy = 62CE0FAE2084868900D76822 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1567,6 +1770,74 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		62CE0F962084810500D76822 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDT34TC7ER;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SHQRCodeLibrary/Interface/QRCodeLibrary.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		62CE0F972084810500D76822 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDT34TC7ER;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SHQRCodeLibrary/Interface/QRCodeLibrary.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		62CE0FBE2084886800D76822 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TDT34TC7ER;
+				INFOPLIST_FILE = SHQRCodeLibrarySource/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sh.SHQRCodeLibrarySource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		62CE0FBF2084886800D76822 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TDT34TC7ER;
+				INFOPLIST_FILE = SHQRCodeLibrarySource/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sh.SHQRCodeLibrarySource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -1912,6 +2183,24 @@
 			buildConfigurations = (
 				62CE0F6D2084718800D76822 /* Debug */,
 				62CE0F6E2084718800D76822 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62CE0F952084810500D76822 /* Build configuration list for PBXNativeTarget "SHQRCodeLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62CE0F962084810500D76822 /* Debug */,
+				62CE0F972084810500D76822 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62CE0FBD2084886800D76822 /* Build configuration list for PBXNativeTarget "SHQRCodeLibrarySource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62CE0FBE2084886800D76822 /* Debug */,
+				62CE0FBF2084886800D76822 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
