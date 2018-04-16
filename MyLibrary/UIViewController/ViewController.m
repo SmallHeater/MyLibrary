@@ -11,11 +11,16 @@
 #import "ScaleViewController.h"
 #import "WaterMarkViewController.h"
 #import "SHAlertViewVC.h"
+#import "SHCalendarVC.h"
+
 
 #define FIRSTLIBRARY @"相片选择器和大图浏览器"
 #define SECONDLIBRARY @"刻度尺组件"
 #define THREELIBRARY @"水印组件"
 #define FOURTHLIBRARY @"AlertView管理组件"
+#define FIFTHLIBRARY @"日历组件"
+#define SIXTHLIBRARY @"扫一扫组件"
+#define SEVENTHLIBRARY @"语言转文字组件"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 //自定义导航条
@@ -86,6 +91,12 @@
         UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nav animated:YES completion:nil];
     }
+    else if ([str isEqualToString:FIFTHLIBRARY]){
+        
+        SHCalendarVC * vc = [[SHCalendarVC alloc] init];
+        UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
 }
 #pragma mark  ----  UITableViewDataSource
 
@@ -149,7 +160,7 @@
     
     if (!_dataArray) {
         
-        _dataArray = [[NSArray alloc] initWithObjects:FIRSTLIBRARY,SECONDLIBRARY,THREELIBRARY,FOURTHLIBRARY, nil];
+        _dataArray = [[NSArray alloc] initWithObjects:FIRSTLIBRARY,SECONDLIBRARY,THREELIBRARY,FOURTHLIBRARY,FIFTHLIBRARY,SIXTHLIBRARY,SEVENTHLIBRARY,nil];
     }
     return _dataArray;
 }

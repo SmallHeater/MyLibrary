@@ -26,6 +26,12 @@
 		62CA40D1207497A30049379B /* AlertViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CA40D0207497A30049379B /* AlertViewManager.m */; };
 		62CA40D4207498AC0049379B /* SHAlertViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CA40D2207498AC0049379B /* SHAlertViewVC.m */; };
 		62CA40D520749A560049379B /* libSHAlertViewManagerLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CA40BE207496D90049379B /* libSHAlertViewManagerLibrary.a */; };
+		62CE0F74208471D000D76822 /* SHCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0F73208471D000D76822 /* SHCalendar.m */; };
+		62CE0F77208473F700D76822 /* SHCalendarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0F76208473F700D76822 /* SHCalendarVC.m */; };
+		62CE0F7E2084759E00D76822 /* BPPCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0F792084759D00D76822 /* BPPCalendarCell.m */; };
+		62CE0F7F2084759E00D76822 /* BPPCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0F7B2084759E00D76822 /* BPPCalendarModel.m */; };
+		62CE0F802084759E00D76822 /* BPPCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0F7C2084759E00D76822 /* BPPCalendar.m */; };
+		62CE0F8A208477D400D76822 /* libSHCalendar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CE0F672084718800D76822 /* libSHCalendar.a */; };
 		62D4E48F206DFDD60063491A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E48E206DFDD60063491A /* AppDelegate.m */; };
 		62D4E495206DFDD60063491A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D4E493206DFDD60063491A /* Main.storyboard */; };
 		62D4E497206DFDD60063491A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62D4E496206DFDD60063491A /* Assets.xcassets */; };
@@ -126,6 +132,27 @@
 			remoteGlobalIDString = 626DFD9220723CDF00940248;
 			remoteInfo = SHScaleControlLibrary;
 		};
+		62CE0F822084771B00D76822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62D4E482206DFDD50063491A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62CE0F662084718800D76822;
+			remoteInfo = SHCalendar;
+		};
+		62CE0F842084772600D76822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62D4E482206DFDD50063491A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62CA40A3207391D70049379B;
+			remoteInfo = SHWaterMarkLibrary;
+		};
+		62CE0F862084772A00D76822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62D4E482206DFDD50063491A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62CA40BD207496D90049379B;
+			remoteInfo = SHAlertViewManagerLibrary;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -157,6 +184,15 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		62CA40BC207496D90049379B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62CE0F652084718800D76822 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
@@ -218,6 +254,18 @@
 		62CA40D0207497A30049379B /* AlertViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertViewManager.m; sourceTree = "<group>"; };
 		62CA40D2207498AC0049379B /* SHAlertViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAlertViewVC.m; sourceTree = "<group>"; };
 		62CA40D3207498AC0049379B /* SHAlertViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAlertViewVC.h; sourceTree = "<group>"; };
+		62CE0F672084718800D76822 /* libSHCalendar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHCalendar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		62CE0F72208471D000D76822 /* SHCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCalendar.h; sourceTree = "<group>"; };
+		62CE0F73208471D000D76822 /* SHCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCalendar.m; sourceTree = "<group>"; };
+		62CE0F75208473F700D76822 /* SHCalendarVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCalendarVC.h; sourceTree = "<group>"; };
+		62CE0F76208473F700D76822 /* SHCalendarVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHCalendarVC.m; sourceTree = "<group>"; };
+		62CE0F782084759D00D76822 /* BPPCalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPCalendarModel.h; sourceTree = "<group>"; };
+		62CE0F792084759D00D76822 /* BPPCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPCalendarCell.m; sourceTree = "<group>"; };
+		62CE0F7A2084759D00D76822 /* BPPCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPCalendar.h; sourceTree = "<group>"; };
+		62CE0F7B2084759E00D76822 /* BPPCalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPCalendarModel.m; sourceTree = "<group>"; };
+		62CE0F7C2084759E00D76822 /* BPPCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPCalendar.m; sourceTree = "<group>"; };
+		62CE0F7D2084759E00D76822 /* BPPCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPCalendarCell.h; sourceTree = "<group>"; };
+		62CE0F81208475EA00D76822 /* SHCalendar.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCalendar.pch; sourceTree = "<group>"; };
 		62D4E48A206DFDD60063491A /* MyLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62D4E48D206DFDD60063491A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		62D4E48E206DFDD60063491A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -347,10 +395,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62CE0F642084718800D76822 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62D4E487206DFDD60063491A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62CE0F8A208477D400D76822 /* libSHCalendar.a in Frameworks */,
 				626DFDAB20724D0000940248 /* libSHScaleControlLibrary.a in Frameworks */,
 				62D4E4EB206E0CEE0063491A /* libSHUIImagePickerController.a in Frameworks */,
 				62F8FD1720722D7500A671D0 /* libSHBigPictureBrowser.a in Frameworks */,
@@ -515,6 +571,38 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		62CE0F682084718800D76822 /* SHCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				62CE0F71208471D000D76822 /* Interface */,
+				62CE0F70208471D000D76822 /* UIView */,
+			);
+			path = SHCalendar;
+			sourceTree = "<group>";
+		};
+		62CE0F70208471D000D76822 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				62CE0F7A2084759D00D76822 /* BPPCalendar.h */,
+				62CE0F7C2084759E00D76822 /* BPPCalendar.m */,
+				62CE0F7D2084759E00D76822 /* BPPCalendarCell.h */,
+				62CE0F792084759D00D76822 /* BPPCalendarCell.m */,
+				62CE0F782084759D00D76822 /* BPPCalendarModel.h */,
+				62CE0F7B2084759E00D76822 /* BPPCalendarModel.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		62CE0F71208471D000D76822 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				62CE0F72208471D000D76822 /* SHCalendar.h */,
+				62CE0F73208471D000D76822 /* SHCalendar.m */,
+				62CE0F81208475EA00D76822 /* SHCalendar.pch */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
 		62D4E481206DFDD50063491A = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +616,7 @@
 				62CA40A5207391D70049379B /* SHWaterMarkLibrary */,
 				62CA40BF207496D90049379B /* SHAlertViewManagerLibrary */,
 				629DF5882074D2DC00F9E2F1 /* SHSpeechRecognitionLibrary */,
+				62CE0F682084718800D76822 /* SHCalendar */,
 				62D4E48B206DFDD60063491A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -545,6 +634,7 @@
 				62CA40A4207391D70049379B /* libSHWaterMarkLibrary.a */,
 				62CA40BE207496D90049379B /* libSHAlertViewManagerLibrary.a */,
 				629DF5872074D2DC00F9E2F1 /* libSHSpeechRecognitionLibrary.a */,
+				62CE0F672084718800D76822 /* libSHCalendar.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -600,6 +690,8 @@
 				62D4E4E3206E0AB30063491A /* SHUIImagePickerControllerDemoVC.m */,
 				62D4E4C0206DFF980063491A /* ViewController.h */,
 				62D4E4C1206DFF980063491A /* ViewController.m */,
+				62CE0F75208473F700D76822 /* SHCalendarVC.h */,
+				62CE0F76208473F700D76822 /* SHCalendarVC.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -884,6 +976,23 @@
 			productReference = 62CA40BE207496D90049379B /* libSHAlertViewManagerLibrary.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		62CE0F662084718800D76822 /* SHCalendar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62CE0F6F2084718800D76822 /* Build configuration list for PBXNativeTarget "SHCalendar" */;
+			buildPhases = (
+				62CE0F632084718800D76822 /* Sources */,
+				62CE0F642084718800D76822 /* Frameworks */,
+				62CE0F652084718800D76822 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SHCalendar;
+			productName = SHCalendar;
+			productReference = 62CE0F672084718800D76822 /* libSHCalendar.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		62D4E489206DFDD60063491A /* MyLibrary */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62D4E4A0206DFDD60063491A /* Build configuration list for PBXNativeTarget "MyLibrary" */;
@@ -895,6 +1004,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				62CE0F872084772A00D76822 /* PBXTargetDependency */,
+				62CE0F852084772600D76822 /* PBXTargetDependency */,
+				62CE0F832084771B00D76822 /* PBXTargetDependency */,
 				626DFDC42072617200940248 /* PBXTargetDependency */,
 				626DFDC22072616F00940248 /* PBXTargetDependency */,
 				626DFDC02072616C00940248 /* PBXTargetDependency */,
@@ -1017,6 +1129,10 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					62CE0F662084718800D76822 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					62D4E489206DFDD60063491A = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -1066,6 +1182,7 @@
 				62CA40A3207391D70049379B /* SHWaterMarkLibrary */,
 				62CA40BD207496D90049379B /* SHAlertViewManagerLibrary */,
 				629DF5862074D2DC00F9E2F1 /* SHSpeechRecognitionLibrary */,
+				62CE0F662084718800D76822 /* SHCalendar */,
 			);
 		};
 /* End PBXProject section */
@@ -1161,6 +1278,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62CE0F632084718800D76822 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62CE0F802084759E00D76822 /* BPPCalendar.m in Sources */,
+				62CE0F7E2084759E00D76822 /* BPPCalendarCell.m in Sources */,
+				62CE0F74208471D000D76822 /* SHCalendar.m in Sources */,
+				62CE0F7F2084759E00D76822 /* BPPCalendarModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62D4E486206DFDD60063491A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1188,6 +1316,7 @@
 				626DFDAA20723E6800940248 /* ScaleViewController.m in Sources */,
 				62D4E582206E593F0063491A /* UIImageView+HighlightedWebCache.m in Sources */,
 				62D4E574206E593F0063491A /* NSData+GIF.m in Sources */,
+				62CE0F77208473F700D76822 /* SHCalendarVC.m in Sources */,
 				62D4E581206E593F0063491A /* UIImage+WebP.m in Sources */,
 				62D4E57C206E593F0063491A /* SDWebImageManager.m in Sources */,
 				62D4E584206E593F0063491A /* UIImageView+WebCache.m in Sources */,
@@ -1273,6 +1402,21 @@
 			isa = PBXTargetDependency;
 			target = 626DFD9220723CDF00940248 /* SHScaleControlLibrary */;
 			targetProxy = 626DFDC32072617200940248 /* PBXContainerItemProxy */;
+		};
+		62CE0F832084771B00D76822 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 62CE0F662084718800D76822 /* SHCalendar */;
+			targetProxy = 62CE0F822084771B00D76822 /* PBXContainerItemProxy */;
+		};
+		62CE0F852084772600D76822 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 62CA40A3207391D70049379B /* SHWaterMarkLibrary */;
+			targetProxy = 62CE0F842084772600D76822 /* PBXContainerItemProxy */;
+		};
+		62CE0F872084772A00D76822 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 62CA40BD207496D90049379B /* SHAlertViewManagerLibrary */;
+			targetProxy = 62CE0F862084772A00D76822 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1390,6 +1534,34 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDT34TC7ER;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		62CE0F6D2084718800D76822 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDT34TC7ER;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SHCalendar/Interface/SHCalendar.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		62CE0F6E2084718800D76822 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDT34TC7ER;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SHCalendar/Interface/SHCalendar.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1731,6 +1903,15 @@
 			buildConfigurations = (
 				62CA40C4207496D90049379B /* Debug */,
 				62CA40C5207496D90049379B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62CE0F6F2084718800D76822 /* Build configuration list for PBXNativeTarget "SHCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62CE0F6D2084718800D76822 /* Debug */,
+				62CE0F6E2084718800D76822 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,0 +1,23 @@
+//
+//  SHCalendar.pch
+//  MyLibrary
+//
+//  Created by xianjunwang on 2018/4/16.
+//  Copyright © 2018年 xianjunwang. All rights reserved.
+//
+
+#ifndef SHCalendar_pch
+#define SHCalendar_pch
+
+#import "UIColor+Translate.h"
+
+#define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define Color_87BA4B  [UIColor colorFromHexRGB:@"87BA4B"]
+#define Color_FFFFFF  [UIColor colorFromHexRGB:@"FFFFFF"]
+
+
+typedef void(^DataBlock)(NSUInteger year,NSUInteger month,NSUInteger day);
+
+#endif /* SHCalendar_pch */
