@@ -44,6 +44,8 @@
 		62CE0FC820848BB800D76822 /* frame_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0FC320848BB800D76822 /* frame_icon@2x.png */; };
 		62CE0FC920848BB800D76822 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0FC420848BB800D76822 /* line.png */; };
 		62CE0FCA20848BC800D76822 /* SHQRCodeLibrarySource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0FBA2084886800D76822 /* SHQRCodeLibrarySource.bundle */; };
+		62CE0FD02084A2C100D76822 /* SHSpeechVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0FCF2084A2C100D76822 /* SHSpeechVC.m */; };
+		62CE0FD12084B04700D76822 /* libSHSpeechRecognitionLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 629DF5872074D2DC00F9E2F1 /* libSHSpeechRecognitionLibrary.a */; };
 		62D4E48F206DFDD60063491A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E48E206DFDD60063491A /* AppDelegate.m */; };
 		62D4E495206DFDD60063491A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D4E493206DFDD60063491A /* Main.storyboard */; };
 		62D4E497206DFDD60063491A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62D4E496206DFDD60063491A /* Assets.xcassets */; };
@@ -171,6 +173,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 62CE0F8E2084810500D76822;
 			remoteInfo = SHQRCodeLibrary;
+		};
+		62CE0FD22084B05400D76822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62D4E482206DFDD50063491A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 629DF5862074D2DC00F9E2F1;
+			remoteInfo = SHSpeechRecognitionLibrary;
+		};
+		62CE0FD42084B05700D76822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62D4E482206DFDD50063491A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62CE0FB92084886800D76822;
+			remoteInfo = SHQRCodeLibrarySource;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -313,6 +329,8 @@
 		62CE0FC220848BB800D76822 /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
 		62CE0FC320848BB800D76822 /* frame_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_icon@2x.png"; sourceTree = "<group>"; };
 		62CE0FC420848BB800D76822 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
+		62CE0FCE2084A2C100D76822 /* SHSpeechVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHSpeechVC.h; sourceTree = "<group>"; };
+		62CE0FCF2084A2C100D76822 /* SHSpeechVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHSpeechVC.m; sourceTree = "<group>"; };
 		62D4E48A206DFDD60063491A /* MyLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62D4E48D206DFDD60063491A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		62D4E48E206DFDD60063491A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -473,6 +491,7 @@
 				62F8FD1720722D7500A671D0 /* libSHBigPictureBrowser.a in Frameworks */,
 				62CE0FAD2084867C00D76822 /* libSHQRCodeLibrary.a in Frameworks */,
 				62CA40D520749A560049379B /* libSHAlertViewManagerLibrary.a in Frameworks */,
+				62CE0FD12084B04700D76822 /* libSHSpeechRecognitionLibrary.a in Frameworks */,
 				62CA40B92073991D0049379B /* libSHWaterMarkLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -813,6 +832,8 @@
 				62CE0F76208473F700D76822 /* SHCalendarVC.m */,
 				62CE0FB32084870600D76822 /* SHScanVC.h */,
 				62CE0FB42084870600D76822 /* SHScanVC.m */,
+				62CE0FCE2084A2C100D76822 /* SHSpeechVC.h */,
+				62CE0FCF2084A2C100D76822 /* SHSpeechVC.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -1159,6 +1180,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				62CE0FD52084B05700D76822 /* PBXTargetDependency */,
+				62CE0FD32084B05400D76822 /* PBXTargetDependency */,
 				62CE0FAF2084868900D76822 /* PBXTargetDependency */,
 				62CE0F872084772A00D76822 /* PBXTargetDependency */,
 				62CE0F852084772600D76822 /* PBXTargetDependency */,
@@ -1521,6 +1544,7 @@
 				62D4E585206E593F0063491A /* UIView+WebCacheOperation.m in Sources */,
 				62D4E576206E593F0063491A /* SDImageCache.m in Sources */,
 				626DFDAE20725FF700940248 /* WaterMarkViewController.m in Sources */,
+				62CE0FD02084A2C100D76822 /* SHSpeechVC.m in Sources */,
 				62D4E575206E593F0063491A /* NSData+ImageContentType.m in Sources */,
 				62D4E48F206DFDD60063491A /* AppDelegate.m in Sources */,
 			);
@@ -1621,6 +1645,16 @@
 			target = 62CE0F8E2084810500D76822 /* SHQRCodeLibrary */;
 			targetProxy = 62CE0FAE2084868900D76822 /* PBXContainerItemProxy */;
 		};
+		62CE0FD32084B05400D76822 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 629DF5862074D2DC00F9E2F1 /* SHSpeechRecognitionLibrary */;
+			targetProxy = 62CE0FD22084B05400D76822 /* PBXContainerItemProxy */;
+		};
+		62CE0FD52084B05700D76822 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 62CE0FB92084886800D76822 /* SHQRCodeLibrarySource */;
+			targetProxy = 62CE0FD42084B05700D76822 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1672,7 +1706,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDT34TC7ER;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1685,7 +1719,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDT34TC7ER;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

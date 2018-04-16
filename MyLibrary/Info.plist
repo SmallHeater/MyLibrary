@@ -4,8 +4,14 @@
 <dict>
 	<key>CFBundleDisplayName</key>
 	<string>组件工程</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>语音识别</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>亲，访问您的相册可以吗？</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App需要您的同意,才能访问麦克风</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>App需要您的同意,才能访问媒体资料库</string>
 	<key>NSCameraUsageDescription</key>
 	<string>亲，使用您的相机可以吗?</string>
 	<key>CFBundleDevelopmentRegion</key>

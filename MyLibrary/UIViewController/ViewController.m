@@ -13,6 +13,8 @@
 #import "SHAlertViewVC.h"
 #import "SHCalendarVC.h"
 #import "SHScanVC.h"
+#import "SHSpeechVC.h"
+
 
 #define FIRSTLIBRARY @"相片选择器和大图浏览器"
 #define SECONDLIBRARY @"刻度尺组件"
@@ -100,6 +102,12 @@
     else if([str isEqualToString:SIXTHLIBRARY]){
         
         SHScanVC * vc = [[SHScanVC alloc] init];
+        UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
+    else if ([str isEqualToString:SEVENTHLIBRARY]){
+        
+        SHSpeechVC * vc = [[SHSpeechVC alloc] init];
         UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nav animated:YES completion:nil];
     }
