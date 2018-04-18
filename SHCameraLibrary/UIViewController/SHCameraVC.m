@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 
-@interface SHCameraVC ()<AVCaptureMetadataOutputObjectsDelegate>{
+@interface SHCameraVC ()<AVCaptureMetadataOutputObjectsDelegate,AVCapturePhotoCaptureDelegate>{
     
     BOOL isGetFace;//是否已检测到人脸
 }
@@ -20,7 +20,8 @@
 // AVCaptureDeviceInput对象是输入流
 @property (nonatomic,strong)AVCaptureDeviceInput *videoInput;
 // 照片输出流对象
-@property (nonatomic,strong)AVCaptureStillImageOutput *stillImageOutput;
+@property (nonatomic,strong) AVCapturePhotoOutput * stillImageOutput;
+//@property (nonatomic,strong)AVCaptureStillImageOutput *stillImageOutput;
 // 预览图层,来显示照相机拍摄到的画面
 @property (nonatomic,strong)AVCaptureVideoPreviewLayer *previewLayer;
 
@@ -143,14 +144,22 @@
     }
 }
 
-
+#pragma mark - AVCapturePhotoCaptureDelegate
+- (void)captureOutput:(AVCapturePhotoOutput *)captureOutput didFinishProcessingPhotoSampleBuffer:(nullable CMSampleBufferRef)photoSampleBuffer previewPhotoSampleBuffer:(nullable CMSampleBufferRef)previewPhotoSampleBuffer resolvedSettings:(AVCaptureResolvedPhotoSettings *)resolvedSettings bracketSettings:(nullable AVCaptureBracketedStillImageSettings *)bracketSettings error:(nullable NSError *)error {
+    
+    NSData *imageData = [AVCapturePhotoOutput JPEGPhotoDataRepresentationForJPEGSampleBuffer:photoSampleBuffer previewPhotoSampleBuffer:previewPhotoSampleBuffer];
+    UIImage *image = [UIImage imageWithData:imageData];
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    self.image = image;
+    self.imageShowView.image = image;
+}
 
 #pragma mark  ----  系统函数
 // 这是获取前后摄像头对象的方法
 - (AVCaptureDevice *)cameraWithPosition:(AVCaptureDevicePosition)position{
     
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-    
+//    NSArray *devices = [[AVCaptureDeviceDiscoverySession alloc]];
     for (AVCaptureDevice * device in devices) {
         
         if (device.position == position) {
@@ -166,10 +175,14 @@
     
     self.session = [[AVCaptureSession alloc] init];
     self.videoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self frontCamera] error:nil];
-    self.stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+    self.stillImageOutput = [[AVCapturePhotoOutput alloc] init];
     // 这是输出流的设置参数AVVideoCodecJPEG参数表示以JPEG的图片格式输出图片
     NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG,AVVideoCodecKey, nil];
-    [self.stillImageOutput setOutputSettings:outputSettings];
+    
+    AVCapturePhotoSettings * photoSetting =[AVCapturePhotoSettings photoSettingsWithFormat:outputSettings];
+    [self.stillImageOutput capturePhotoWithSettings:photoSetting delegate:self];
+    
+//    [self.stillImageOutput setOutputSettings:outputSettings];
     if ([self.session canAddInput:self.videoInput]) {
         
         [self.session addInput:self.videoInput];
@@ -266,19 +279,19 @@
         return;
     }
     
-    [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer,NSError *error) {
-        
-        if (imageDataSampleBuffer == NULL) {
-            
-            return;
-        }
-        
-        NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-        UIImage *image = [UIImage imageWithData:imageData];
-        NSLog(@"image size = %@",NSStringFromCGSize(image.size));
-        self.image = image;
-        self.imageShowView.image = image;
-    }];
+//    [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer,NSError *error) {
+//
+//        if (imageDataSampleBuffer == NULL) {
+//
+//            return;
+//        }
+//
+//        NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+//        UIImage *image = [UIImage imageWithData:imageData];
+//        NSLog(@"image size = %@",NSStringFromCGSize(image.size));
+//        self.image = image;
+//        self.imageShowView.image = image;
+//    }];
 }
 
 // 这是切换镜头的按钮方法

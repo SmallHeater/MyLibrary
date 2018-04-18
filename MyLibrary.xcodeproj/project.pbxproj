@@ -21,6 +21,7 @@
 		62945D3E2086E2240026BA41 /* SHCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62945D3D2086E2240026BA41 /* SHCameraVC.m */; };
 		62945D3F2086E6310026BA41 /* libSHCameraLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62945D2E2086E1AF0026BA41 /* libSHCameraLibrary.a */; };
 		62945D422086E6630026BA41 /* SHCameraLibraryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62945D412086E6630026BA41 /* SHCameraLibraryVC.m */; };
+		62945D492086F2C00026BA41 /* SHCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 62945D482086F2C00026BA41 /* SHCamera.m */; };
 		629DF5962074DBED00F9E2F1 /* SHSpeechRecognitionLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 629DF5952074DBED00F9E2F1 /* SHSpeechRecognitionLibrary.m */; };
 		629DF5992074DC1A00F9E2F1 /* SpeechRecognitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 629DF5982074DC1A00F9E2F1 /* SpeechRecognitionController.m */; };
 		62CA40B1207392220049379B /* SHWaterMarkLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CA40B0207392220049379B /* SHWaterMarkLibrary.m */; };
@@ -309,6 +310,8 @@
 		62945D402086E6630026BA41 /* SHCameraLibraryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCameraLibraryVC.h; sourceTree = "<group>"; };
 		62945D412086E6630026BA41 /* SHCameraLibraryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHCameraLibraryVC.m; sourceTree = "<group>"; };
 		62945D432086E84D0026BA41 /* SHCameraLibrary.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCameraLibrary.pch; sourceTree = "<group>"; };
+		62945D472086F2C00026BA41 /* SHCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCamera.h; sourceTree = "<group>"; };
+		62945D482086F2C00026BA41 /* SHCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHCamera.m; sourceTree = "<group>"; };
 		629DF5872074D2DC00F9E2F1 /* libSHSpeechRecognitionLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHSpeechRecognitionLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		629DF5942074DBED00F9E2F1 /* SHSpeechRecognitionLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSpeechRecognitionLibrary.h; sourceTree = "<group>"; };
 		629DF5952074DBED00F9E2F1 /* SHSpeechRecognitionLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSpeechRecognitionLibrary.m; sourceTree = "<group>"; };
@@ -611,6 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				62945D382086E1EB0026BA41 /* Interface */,
+				62945D462086F20D0026BA41 /* UIView */,
 				62945D372086E1EB0026BA41 /* UIViewController */,
 			);
 			path = SHCameraLibrary;
@@ -633,6 +637,15 @@
 				62945D432086E84D0026BA41 /* SHCameraLibrary.pch */,
 			);
 			path = Interface;
+			sourceTree = "<group>";
+		};
+		62945D462086F20D0026BA41 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				62945D472086F2C00026BA41 /* SHCamera.h */,
+				62945D482086F2C00026BA41 /* SHCamera.m */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		629DF5882074D2DC00F9E2F1 /* SHSpeechRecognitionLibrary */ = {
@@ -1548,6 +1561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62945D492086F2C00026BA41 /* SHCamera.m in Sources */,
 				62945D3E2086E2240026BA41 /* SHCameraVC.m in Sources */,
 				62945D3B2086E1EB0026BA41 /* SHCameraLibrary.m in Sources */,
 			);
