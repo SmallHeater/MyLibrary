@@ -7,12 +7,12 @@
 		<key>MyLibrary.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<key>MyLibrarySource.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 		<key>SHAlertViewManagerLibrary.xcscheme</key>
 		<dict>
@@ -22,17 +22,22 @@
 		<key>SHBigPictureBrowser.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>0</integer>
 		</dict>
 		<key>SHBigPictureBrowserSource.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
 		</dict>
 		<key>SHCalendar.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>9</integer>
+		</dict>
+		<key>SHCameraLibrary.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
 		</dict>
 		<key>SHQRCodeLibrary.xcscheme</key>
 		<dict>
@@ -47,7 +52,7 @@
 		<key>SHScaleControlLibrary.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>5</integer>
 		</dict>
 		<key>SHSpeechRecognitionLibrary.xcscheme</key>
 		<dict>
@@ -57,12 +62,12 @@
 		<key>SHUIImagePickerController.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>SHUIImagePickerControllerLibrarySource.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>2</integer>
 		</dict>
 		<key>SHWaterMarkLibrary.xcscheme</key>
 		<dict>

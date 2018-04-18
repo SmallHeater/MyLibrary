@@ -115,6 +115,7 @@
     if (!_resultLabel) {
         
         _resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 200, SCREENWIDTH - 20, 40)];
+        _resultLabel.text = @"识别结果";
     }
     return _resultLabel;
 }

@@ -5,7 +5,9 @@
 	<key>CFBundleDisplayName</key>
 	<string>组件工程</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>语音识别</string>
+	<string>11111</string>
+	<key>Microphone Usage Description</key>
+	<string>测试</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>亲，访问您的相册可以吗？</string>
 	<key>NSMicrophoneUsageDescription</key>

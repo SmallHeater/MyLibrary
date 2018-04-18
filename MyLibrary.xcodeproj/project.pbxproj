@@ -17,6 +17,10 @@
 		626DFDB6207260B000940248 /* A_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 626DFDB2207260B000940248 /* A_1@2x.png */; };
 		626DFDB7207260B000940248 /* A_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 626DFDB3207260B000940248 /* A_1@3x.png */; };
 		626DFDB8207260B000940248 /* videoplaceholdersmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 626DFDB4207260B000940248 /* videoplaceholdersmall@2x.png */; };
+		62945D3B2086E1EB0026BA41 /* SHCameraLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 62945D3A2086E1EB0026BA41 /* SHCameraLibrary.m */; };
+		62945D3E2086E2240026BA41 /* SHCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62945D3D2086E2240026BA41 /* SHCameraVC.m */; };
+		62945D3F2086E6310026BA41 /* libSHCameraLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62945D2E2086E1AF0026BA41 /* libSHCameraLibrary.a */; };
+		62945D422086E6630026BA41 /* SHCameraLibraryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62945D412086E6630026BA41 /* SHCameraLibraryVC.m */; };
 		629DF5962074DBED00F9E2F1 /* SHSpeechRecognitionLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 629DF5952074DBED00F9E2F1 /* SHSpeechRecognitionLibrary.m */; };
 		629DF5992074DC1A00F9E2F1 /* SpeechRecognitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 629DF5982074DC1A00F9E2F1 /* SpeechRecognitionController.m */; };
 		62CA40B1207392220049379B /* SHWaterMarkLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CA40B0207392220049379B /* SHWaterMarkLibrary.m */; };
@@ -146,6 +150,13 @@
 			remoteGlobalIDString = 626DFD9220723CDF00940248;
 			remoteInfo = SHScaleControlLibrary;
 		};
+		62945D442086E9620026BA41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62D4E482206DFDD50063491A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62945D2D2086E1AF0026BA41;
+			remoteInfo = SHCameraLibrary;
+		};
 		62CE0F822084771B00D76822 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 62D4E482206DFDD50063491A /* Project object */;
@@ -192,6 +203,15 @@
 
 /* Begin PBXCopyFilesBuildPhase section */
 		626DFD9120723CDF00940248 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62945D2C2086E1AF0026BA41 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
@@ -281,6 +301,14 @@
 		626DFDB2207260B000940248 /* A_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A_1@2x.png"; sourceTree = "<group>"; };
 		626DFDB3207260B000940248 /* A_1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A_1@3x.png"; sourceTree = "<group>"; };
 		626DFDB4207260B000940248 /* videoplaceholdersmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videoplaceholdersmall@2x.png"; sourceTree = "<group>"; };
+		62945D2E2086E1AF0026BA41 /* libSHCameraLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHCameraLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		62945D392086E1EB0026BA41 /* SHCameraLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCameraLibrary.h; sourceTree = "<group>"; };
+		62945D3A2086E1EB0026BA41 /* SHCameraLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCameraLibrary.m; sourceTree = "<group>"; };
+		62945D3C2086E2230026BA41 /* SHCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCameraVC.h; sourceTree = "<group>"; };
+		62945D3D2086E2240026BA41 /* SHCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCameraVC.m; sourceTree = "<group>"; };
+		62945D402086E6630026BA41 /* SHCameraLibraryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCameraLibraryVC.h; sourceTree = "<group>"; };
+		62945D412086E6630026BA41 /* SHCameraLibraryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHCameraLibraryVC.m; sourceTree = "<group>"; };
+		62945D432086E84D0026BA41 /* SHCameraLibrary.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCameraLibrary.pch; sourceTree = "<group>"; };
 		629DF5872074D2DC00F9E2F1 /* libSHSpeechRecognitionLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHSpeechRecognitionLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		629DF5942074DBED00F9E2F1 /* SHSpeechRecognitionLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSpeechRecognitionLibrary.h; sourceTree = "<group>"; };
 		629DF5952074DBED00F9E2F1 /* SHSpeechRecognitionLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSpeechRecognitionLibrary.m; sourceTree = "<group>"; };
@@ -439,6 +467,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62945D2B2086E1AF0026BA41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		629DF5842074D2DC00F9E2F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -491,6 +526,7 @@
 				62F8FD1720722D7500A671D0 /* libSHBigPictureBrowser.a in Frameworks */,
 				62CE0FAD2084867C00D76822 /* libSHQRCodeLibrary.a in Frameworks */,
 				62CA40D520749A560049379B /* libSHAlertViewManagerLibrary.a in Frameworks */,
+				62945D3F2086E6310026BA41 /* libSHCameraLibrary.a in Frameworks */,
 				62CE0FD12084B04700D76822 /* libSHSpeechRecognitionLibrary.a in Frameworks */,
 				62CA40B92073991D0049379B /* libSHWaterMarkLibrary.a in Frameworks */,
 			);
@@ -569,6 +605,34 @@
 				626DFDA620723E2000940248 /* ScaleControlConfigurationModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		62945D2F2086E1AF0026BA41 /* SHCameraLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				62945D382086E1EB0026BA41 /* Interface */,
+				62945D372086E1EB0026BA41 /* UIViewController */,
+			);
+			path = SHCameraLibrary;
+			sourceTree = "<group>";
+		};
+		62945D372086E1EB0026BA41 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				62945D3C2086E2230026BA41 /* SHCameraVC.h */,
+				62945D3D2086E2240026BA41 /* SHCameraVC.m */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		62945D382086E1EB0026BA41 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				62945D392086E1EB0026BA41 /* SHCameraLibrary.h */,
+				62945D3A2086E1EB0026BA41 /* SHCameraLibrary.m */,
+				62945D432086E84D0026BA41 /* SHCameraLibrary.pch */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 		629DF5882074D2DC00F9E2F1 /* SHSpeechRecognitionLibrary */ = {
@@ -753,6 +817,7 @@
 				62CE0F682084718800D76822 /* SHCalendar */,
 				62CE0F902084810500D76822 /* SHQRCodeLibrary */,
 				62CE0FBB2084886800D76822 /* SHQRCodeLibrarySource */,
+				62945D2F2086E1AF0026BA41 /* SHCameraLibrary */,
 				62D4E48B206DFDD60063491A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -773,6 +838,7 @@
 				62CE0F672084718800D76822 /* libSHCalendar.a */,
 				62CE0F8F2084810500D76822 /* libSHQRCodeLibrary.a */,
 				62CE0FBA2084886800D76822 /* SHQRCodeLibrarySource.bundle */,
+				62945D2E2086E1AF0026BA41 /* libSHCameraLibrary.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -834,6 +900,8 @@
 				62CE0FB42084870600D76822 /* SHScanVC.m */,
 				62CE0FCE2084A2C100D76822 /* SHSpeechVC.h */,
 				62CE0FCF2084A2C100D76822 /* SHSpeechVC.m */,
+				62945D402086E6630026BA41 /* SHCameraLibraryVC.h */,
+				62945D412086E6630026BA41 /* SHCameraLibraryVC.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -1067,6 +1135,23 @@
 			productReference = 626DFD9320723CDF00940248 /* libSHScaleControlLibrary.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		62945D2D2086E1AF0026BA41 /* SHCameraLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62945D362086E1AF0026BA41 /* Build configuration list for PBXNativeTarget "SHCameraLibrary" */;
+			buildPhases = (
+				62945D2A2086E1AF0026BA41 /* Sources */,
+				62945D2B2086E1AF0026BA41 /* Frameworks */,
+				62945D2C2086E1AF0026BA41 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SHCameraLibrary;
+			productName = SHCameraLibrary;
+			productReference = 62945D2E2086E1AF0026BA41 /* libSHCameraLibrary.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		629DF5862074D2DC00F9E2F1 /* SHSpeechRecognitionLibrary */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 629DF58F2074D2DC00F9E2F1 /* Build configuration list for PBXNativeTarget "SHSpeechRecognitionLibrary" */;
@@ -1180,6 +1265,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				62945D452086E9620026BA41 /* PBXTargetDependency */,
 				62CE0FD52084B05700D76822 /* PBXTargetDependency */,
 				62CE0FD32084B05400D76822 /* PBXTargetDependency */,
 				62CE0FAF2084868900D76822 /* PBXTargetDependency */,
@@ -1296,6 +1382,10 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					62945D2D2086E1AF0026BA41 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					629DF5862074D2DC00F9E2F1 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -1372,6 +1462,7 @@
 				62CE0F662084718800D76822 /* SHCalendar */,
 				62CE0F8E2084810500D76822 /* SHQRCodeLibrary */,
 				62CE0FB92084886800D76822 /* SHQRCodeLibrarySource */,
+				62945D2D2086E1AF0026BA41 /* SHCameraLibrary */,
 			);
 		};
 /* End PBXProject section */
@@ -1450,6 +1541,15 @@
 				626DFDA320723E0F00940248 /* ScaleControl.m in Sources */,
 				626DFDA020723D2000940248 /* SHScaleControlLibrary.m in Sources */,
 				626DFDA720723E2100940248 /* ScaleControlConfigurationModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62945D2A2086E1AF0026BA41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62945D3E2086E2240026BA41 /* SHCameraVC.m in Sources */,
+				62945D3B2086E1EB0026BA41 /* SHCameraLibrary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1537,6 +1637,7 @@
 				626DFDAA20723E6800940248 /* ScaleViewController.m in Sources */,
 				62D4E582206E593F0063491A /* UIImageView+HighlightedWebCache.m in Sources */,
 				62D4E574206E593F0063491A /* NSData+GIF.m in Sources */,
+				62945D422086E6630026BA41 /* SHCameraLibraryVC.m in Sources */,
 				62CE0F77208473F700D76822 /* SHCalendarVC.m in Sources */,
 				62D4E581206E593F0063491A /* UIImage+WebP.m in Sources */,
 				62D4E57C206E593F0063491A /* SDWebImageManager.m in Sources */,
@@ -1625,6 +1726,11 @@
 			target = 626DFD9220723CDF00940248 /* SHScaleControlLibrary */;
 			targetProxy = 626DFDC32072617200940248 /* PBXContainerItemProxy */;
 		};
+		62945D452086E9620026BA41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 62945D2D2086E1AF0026BA41 /* SHCameraLibrary */;
+			targetProxy = 62945D442086E9620026BA41 /* PBXContainerItemProxy */;
+		};
 		62CE0F832084771B00D76822 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 62CE0F662084718800D76822 /* SHCalendar */;
@@ -1694,6 +1800,32 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDT34TC7ER;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		62945D342086E1AF0026BA41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDT34TC7ER;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		62945D352086E1AF0026BA41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDT34TC7ER;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2181,6 +2313,15 @@
 			buildConfigurations = (
 				626DFD9920723CDF00940248 /* Debug */,
 				626DFD9A20723CDF00940248 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62945D362086E1AF0026BA41 /* Build configuration list for PBXNativeTarget "SHCameraLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62945D342086E1AF0026BA41 /* Debug */,
+				62945D352086E1AF0026BA41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

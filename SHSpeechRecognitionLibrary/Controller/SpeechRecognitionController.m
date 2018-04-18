@@ -17,6 +17,7 @@
 @property(nonatomic,strong) SFSpeechAudioBufferRecognitionRequest * recognitionRequest;
 @property(nonatomic,strong) SFSpeechRecognitionTask * recognitionTask;
 @property(nonatomic,strong) AVAudioEngine * audioEngine;
+@property(nonatomic,strong)AVAudioInputNode *buffeInputNode;
 
 @end
 
@@ -32,7 +33,7 @@
 //开始识别
 -(void)startRecording:(void(^)(NSString *resultStr))resultBlock{
     
-    [self stopRecording];
+//    [self stopRecording];
     
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     bool  audioBool = [audioSession setCategory:AVAudioSessionCategoryRecord error:nil];
@@ -47,42 +48,47 @@
     }
     
     self.recognitionRequest = [[SFSpeechAudioBufferRecognitionRequest alloc]init];
-    AVAudioInputNode *inputNode = self.audioEngine.inputNode;
-    
-    self.recognitionRequest.shouldReportPartialResults = true;
+    self.buffeInputNode = self.audioEngine.inputNode;
+    //true,时时回调。false,一句一回调。默认true。
+    self.recognitionRequest.shouldReportPartialResults = NO;
     
     
     //开始识别任务
+    __weak SpeechRecognitionController * wekSelf = self;
     self.recognitionTask = [self.recognizer recognitionTaskWithRequest:self.recognitionRequest resultHandler:^(SFSpeechRecognitionResult * _Nullable result, NSError * _Nullable error) {
         
-        bool isFinal = false;
         if (result) {
             
             dispatch_async(dispatch_get_main_queue(), ^{
+                
                 NSString * str = [[result bestTranscription] formattedString]; //语音转文本
                 resultBlock(str);
                 NSLog(@"转换结果:%@",str);
             });
-            
-            isFinal = [result isFinal];
         }
-        if (error || isFinal) {
+        if (error) {
             
+            //结束监听
             [self.audioEngine stop];
-            [inputNode removeTapOnBus:0];
+            [self.buffeInputNode removeTapOnBus:0];
             self.recognitionRequest = nil;
             self.recognitionTask = nil;
+            NSLog(@"错误信息2：%@",error.userInfo);
         }
     }];
     
-    
-    AVAudioFormat *recordingFormat = [inputNode outputFormatForBus:0];
-    [inputNode installTapOnBus:0 bufferSize:1024 format:recordingFormat block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
+    //监听一个标识位并拼接流文件
+    AVAudioFormat *recordingFormat = [self.buffeInputNode outputFormatForBus:0];
+    [self.buffeInputNode installTapOnBus:0 bufferSize:1024 format:recordingFormat block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
         [self.recognitionRequest appendAudioPCMBuffer:buffer];
     }];
+    //准备启动引擎
     [self.audioEngine prepare];
-    bool audioEngineBool = [self.audioEngine startAndReturnError:nil];
-    NSLog(@"%d",audioEngineBool);
+    NSError * error = nil;
+    if (![self.audioEngine startAndReturnError:&error]) {
+     
+        NSLog(@"错误信息1：%@",error.userInfo);
+    }
 }
 
 //停止
@@ -136,5 +142,6 @@
     }
     return _audioEngine;
 }
+
 
 @end
