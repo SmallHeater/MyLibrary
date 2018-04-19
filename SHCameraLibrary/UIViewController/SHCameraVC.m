@@ -8,7 +8,7 @@
 
 #import "SHCameraVC.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import "SHCamera.h"
 
 @interface SHCameraVC ()<AVCaptureMetadataOutputObjectsDelegate>{
     
@@ -38,6 +38,8 @@
 //使用的抓拍图片
 @property (nonatomic,strong) UIImage * image;
 
+@property (nonatomic,strong) SHCamera * cameraView;
+
 @end
 
 @implementation SHCameraVC
@@ -50,10 +52,10 @@
     if (self) {
         
         isGetFace = NO;
-        [self initCameraShowView];
-        [self initialSession];
-        [self initImageShowView];
-        [self initButton];
+//        [self initCameraShowView];
+//        [self initialSession];
+//        [self initImageShowView];
+//        [self initButton];
     }
     
     return self;
@@ -64,6 +66,8 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.cameraView];
 }
 
 
@@ -71,7 +75,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    [self setUpCameraLayer];
+//    [self setUpCameraLayer];
 }
 
 
@@ -321,5 +325,14 @@
             NSLog(@"toggle carema failed, error = %@", error);
         }
     }
+}
+
+-(SHCamera *)cameraView{
+    
+    if (!_cameraView) {
+        
+        _cameraView = [[SHCamera alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
+    }
+    return _cameraView;
 }
 @end

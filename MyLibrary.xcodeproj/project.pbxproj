@@ -1826,6 +1826,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDT34TC7ER;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SHCameraLibrary/Interface/SHCameraLibrary.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1839,6 +1840,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDT34TC7ER;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SHCameraLibrary/Interface/SHCameraLibrary.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
