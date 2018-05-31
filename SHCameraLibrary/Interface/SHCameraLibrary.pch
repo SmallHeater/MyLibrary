@@ -9,7 +9,12 @@
 #ifndef SHCameraLibrary_pch
 #define SHCameraLibrary_pch
 
+#import <UIKit/UIKit.h>
+
+
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+
+typedef void(^ReturnImageBlock)(UIImage * image);
 
 #endif /* SHCameraLibrary_pch */

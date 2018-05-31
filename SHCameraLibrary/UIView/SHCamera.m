@@ -7,24 +7,6 @@
 //
 
 #import "SHCamera.h"
-#import <AVFoundation/AVFoundation.h>
-
-
-@interface SHCamera ()
-
-// AVCaptureSession对象来执行输入设备和输出设备之间的数据传递
-@property (nonatomic,strong)AVCaptureSession *session;
-// AVCaptureDeviceInput对象是输入流
-@property (nonatomic,strong)AVCaptureDeviceInput *videoInput;
-// 照片输出流对象
-@property (nonatomic,strong)AVCaptureStillImageOutput *stillImageOutput;
-// 预览图层,来显示照相机拍摄到的画面
-@property (nonatomic,strong)AVCaptureVideoPreviewLayer *previewLayer;
-
-@property (nonatomic,strong) AVCaptureMetadataOutput * outPut;
-
-@end
-
 
 @implementation SHCamera
 
@@ -34,18 +16,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.session;
-        self.videoInput;
-        self.stillImageOutput;
-        self.previewLayer;
-        self.outPut;
-        
+        [self videoInput];
+        [self previewLayer];
+
         if (self.session) {
-            
+
             [self.session startRunning];
         }
-        
-    
     }
     return self;
 }
@@ -59,8 +36,25 @@
 }
 
 #pragma mark  ----  自定义函数
+
 // 这是获取前后摄像头对象的方法
 - (AVCaptureDevice *)cameraWithPosition:(AVCaptureDevicePosition)position{
+    
+    float verson = [UIDevice currentDevice].systemVersion.floatValue;
+    BOOL result = verson >= 10.0;
+    
+#ifdef result
+    
+    //版本为10.0以上
+    AVCaptureDeviceDiscoverySession *devicesIOS10 = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera] mediaType:AVMediaTypeVideo position:position];
+    
+    NSArray *devicesIOS  = devicesIOS10.devices;
+    for (AVCaptureDevice *device in devicesIOS) {
+        if ([device position] == position) {
+            return device;
+        }
+    }
+#else
     
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
     
@@ -71,6 +65,8 @@
             return device;
         }
     }
+#endif
+    
     return nil;
 }
 
@@ -79,13 +75,19 @@
     return [self cameraWithPosition:AVCaptureDevicePositionFront];
 }
 
+
+- (AVCaptureDevice *)backCamera{
+    
+    return [self cameraWithPosition:AVCaptureDevicePositionBack];
+}
+
 #pragma mark  ----  懒加载
 
 -(AVCaptureSession *)session{
     
     if (!_session) {
         
-         _session = [[AVCaptureSession alloc] init];
+        _session = [[AVCaptureSession alloc] init];
     }
     return _session;
 }
@@ -101,39 +103,6 @@
         }
     }
     return _videoInput;
-}
-
--(AVCaptureStillImageOutput *)stillImageOutput{
-    
-    if (!_stillImageOutput) {
-        
-        _stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
-        // 这是输出流的设置参数AVVideoCodecJPEG参数表示以JPEG的图片格式输出图片
-        NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG,AVVideoCodecKey, nil];
-        [_stillImageOutput setOutputSettings:outputSettings];
-        if ([self.session canAddOutput:self.stillImageOutput]) {
-            
-            [self.session addOutput:self.stillImageOutput];
-        }
-    }
-    return _stillImageOutput;
-}
-
--(AVCaptureMetadataOutput *)outPut{
-    
-    if (!_outPut) {
-        
-        self.outPut = [[AVCaptureMetadataOutput alloc] init];
-        [self.outPut setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-        if ([self.session canAddOutput:self.outPut]) {
-            
-            [self.session addOutput:self.outPut];
-        }
-        self.outPut.metadataObjectTypes = @[AVMetadataObjectTypeFace];
-        //设置扫描区域
-        self.outPut.rectOfInterest = self.frame;
-    }
-    return _outPut;
 }
 
 -(AVCaptureVideoPreviewLayer *)previewLayer{

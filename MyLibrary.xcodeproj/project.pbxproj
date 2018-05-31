@@ -17,6 +17,7 @@
 		626DFDB6207260B000940248 /* A_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 626DFDB2207260B000940248 /* A_1@2x.png */; };
 		626DFDB7207260B000940248 /* A_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 626DFDB3207260B000940248 /* A_1@3x.png */; };
 		626DFDB8207260B000940248 /* videoplaceholdersmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 626DFDB4207260B000940248 /* videoplaceholdersmall@2x.png */; };
+		626FCDAA20BE6B2A00ED253A /* SHCameraTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62954C3320B3E7B5008384CC /* SHCameraTopView.m */; };
 		62945D3B2086E1EB0026BA41 /* SHCameraLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 62945D3A2086E1EB0026BA41 /* SHCameraLibrary.m */; };
 		62945D3E2086E2240026BA41 /* SHCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62945D3D2086E2240026BA41 /* SHCameraVC.m */; };
 		62945D3F2086E6310026BA41 /* libSHCameraLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62945D2E2086E1AF0026BA41 /* libSHCameraLibrary.a */; };
@@ -312,6 +313,8 @@
 		62945D432086E84D0026BA41 /* SHCameraLibrary.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCameraLibrary.pch; sourceTree = "<group>"; };
 		62945D472086F2C00026BA41 /* SHCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCamera.h; sourceTree = "<group>"; };
 		62945D482086F2C00026BA41 /* SHCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHCamera.m; sourceTree = "<group>"; };
+		62954C3220B3E7B5008384CC /* SHCameraTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCameraTopView.h; sourceTree = "<group>"; };
+		62954C3320B3E7B5008384CC /* SHCameraTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHCameraTopView.m; sourceTree = "<group>"; };
 		629DF5872074D2DC00F9E2F1 /* libSHSpeechRecognitionLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHSpeechRecognitionLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		629DF5942074DBED00F9E2F1 /* SHSpeechRecognitionLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSpeechRecognitionLibrary.h; sourceTree = "<group>"; };
 		629DF5952074DBED00F9E2F1 /* SHSpeechRecognitionLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSpeechRecognitionLibrary.m; sourceTree = "<group>"; };
@@ -644,6 +647,8 @@
 			children = (
 				62945D472086F2C00026BA41 /* SHCamera.h */,
 				62945D482086F2C00026BA41 /* SHCamera.m */,
+				62954C3220B3E7B5008384CC /* SHCameraTopView.h */,
+				62954C3320B3E7B5008384CC /* SHCameraTopView.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1563,6 +1568,7 @@
 			files = (
 				62945D492086F2C00026BA41 /* SHCamera.m in Sources */,
 				62945D3E2086E2240026BA41 /* SHCameraVC.m in Sources */,
+				626FCDAA20BE6B2A00ED253A /* SHCameraTopView.m in Sources */,
 				62945D3B2086E1EB0026BA41 /* SHCameraLibrary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

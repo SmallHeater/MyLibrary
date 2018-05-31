@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^ReturnBlock)(UIImage * image);
+
 
 @interface SHCameraVC : UIViewController
 
-@property (nonatomic,copy) ReturnBlock returnBlock;
+@property (nonatomic,copy) ReturnImageBlock returnBlock;
 
 @end
