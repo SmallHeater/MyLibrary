@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		624E117820F454FD003BDE9D /* SHAlertControllerConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 624E117720F454FD003BDE9D /* SHAlertControllerConfigurationModel.m */; };
+		624E117B20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 624E117A20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m */; };
 		626DFDA020723D2000940248 /* SHScaleControlLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DFD9E20723D2000940248 /* SHScaleControlLibrary.m */; };
 		626DFDA320723E0F00940248 /* ScaleControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DFDA120723E0E00940248 /* ScaleControl.m */; };
 		626DFDA720723E2100940248 /* ScaleControlConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DFDA620723E2000940248 /* ScaleControlConfigurationModel.m */; };
@@ -288,6 +290,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		624E117620F454FD003BDE9D /* SHAlertControllerConfigurationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHAlertControllerConfigurationModel.h; sourceTree = "<group>"; };
+		624E117720F454FD003BDE9D /* SHAlertControllerConfigurationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAlertControllerConfigurationModel.m; sourceTree = "<group>"; };
+		624E117920F4561A003BDE9D /* SHUIAlertActionConfigurationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHUIAlertActionConfigurationModel.h; sourceTree = "<group>"; };
+		624E117A20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHUIAlertActionConfigurationModel.m; sourceTree = "<group>"; };
 		626DFD9320723CDF00940248 /* libSHScaleControlLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHScaleControlLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		626DFD9D20723D2000940248 /* SHScaleControlLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHScaleControlLibrary.h; sourceTree = "<group>"; };
 		626DFD9E20723D2000940248 /* SHScaleControlLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHScaleControlLibrary.m; sourceTree = "<group>"; };
@@ -576,6 +582,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		624E117520F45489003BDE9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				624E117620F454FD003BDE9D /* SHAlertControllerConfigurationModel.h */,
+				624E117720F454FD003BDE9D /* SHAlertControllerConfigurationModel.m */,
+				624E117920F4561A003BDE9D /* SHUIAlertActionConfigurationModel.h */,
+				624E117A20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		626DFD9420723CDF00940248 /* SHScaleControlLibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +727,7 @@
 		62CA40BF207496D90049379B /* SHAlertViewManagerLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				624E117520F45489003BDE9D /* Model */,
 				62CA40CA207497620049379B /* Controller */,
 				62CA40C7207497620049379B /* Interface */,
 			);
@@ -1596,6 +1614,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				62CA40CD207497620049379B /* SHAlertViewManagerLibrary.m in Sources */,
+				624E117820F454FD003BDE9D /* SHAlertControllerConfigurationModel.m in Sources */,
+				624E117B20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m in Sources */,
 				62CA40D1207497A30049379B /* AlertViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

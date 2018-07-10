@@ -63,7 +63,6 @@
 - (IBAction)addAlert:(id)sender {
     
     NSString * title = [[NSString alloc] initWithFormat:@"第%ld个alert",(long)alertNumber];
-    
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:title message:@"弹出alert了呀" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [SHAlertViewManagerLibrary addShowView:alert];
     alertNumber++;
@@ -99,9 +98,102 @@
 
 
 - (IBAction)addAlertAndAction:(id)sender {
+    
     [self addAlert:nil];
+    
+    //实例化alert
+    __block UIAlertController * alertControl;
+    SHAlertControllerConfigurationModel *  alertControllerConfigurationModel = [[SHAlertControllerConfigurationModel alloc] init];
+    alertControllerConfigurationModel.alertTitle = @"API Alert";
+    alertControllerConfigurationModel.alertMessage = @"弹出alert";
+    alertControllerConfigurationModel.alertControllerStyle = UIAlertControllerStyleAlert;
+    
+    SHUIAlertActionConfigurationModel * actionConfigurationModel = [[SHUIAlertActionConfigurationModel alloc] init];
+    actionConfigurationModel.alertActionTitle = @"取消";
+    actionConfigurationModel.actionStyle = UIAlertActionStyleCancel;
+    actionConfigurationModel.actionBlock = ^(UIAlertAction *action) {
+        
+        NSLog(@"取消");
+        if (alertControl) {
+            
+            [SHAlertViewManagerLibrary deleShowView:alertControl];
+        }
+        else{
+            
+            NSLog(@"指针为Nil");
+        }
+        
+    };
+    [alertControllerConfigurationModel.actionConfigurationModelsArray addObject:actionConfigurationModel];
+    
+    SHUIAlertActionConfigurationModel * actionConfigurationModelTwo = [[SHUIAlertActionConfigurationModel alloc] init];
+    actionConfigurationModelTwo.alertActionTitle = @"确定";
+    actionConfigurationModelTwo.actionStyle = UIAlertActionStyleDefault;
+    actionConfigurationModelTwo.actionBlock = ^(UIAlertAction *action) {
+        
+        NSLog(@"确定");
+        if (alertControl) {
+            
+            [SHAlertViewManagerLibrary deleShowView:alertControl];
+        }
+        else{
+            
+            NSLog(@"指针为Nil");
+        }
+        
+    };
+    [alertControllerConfigurationModel.actionConfigurationModelsArray addObject:actionConfigurationModelTwo];
+    
+    alertControl = [SHAlertViewManagerLibrary pushAlertControllerWithConfigurationModel:alertControllerConfigurationModel];
+    
+    
     [self addAction:nil];
-    [self addAction:nil];
+
+    //实例化ActionSheet
+    __block UIAlertController * actionSheet;
+    SHAlertControllerConfigurationModel *  alertControllerConfigurationModelTwo = [[SHAlertControllerConfigurationModel alloc] init];
+    alertControllerConfigurationModelTwo.alertTitle = @"API ActionSheet";
+    alertControllerConfigurationModelTwo.alertMessage = @"弹出alert";
+    alertControllerConfigurationModelTwo.alertControllerStyle = UIAlertControllerStyleActionSheet;
+    
+    SHUIAlertActionConfigurationModel * actionConfigurationModelThree = [[SHUIAlertActionConfigurationModel alloc] init];
+    actionConfigurationModelThree.alertActionTitle = @"选项一";
+    actionConfigurationModelThree.actionStyle = UIAlertActionStyleCancel;
+    actionConfigurationModelThree.actionBlock = ^(UIAlertAction *action) {
+        
+        NSLog(@"取消");
+        if (alertControl) {
+            
+            [SHAlertViewManagerLibrary deleShowView:actionSheet];
+        }
+        else{
+            
+            NSLog(@"指针为Nil");
+        }
+        
+    };
+    [alertControllerConfigurationModelTwo.actionConfigurationModelsArray addObject:actionConfigurationModelThree];
+    
+    SHUIAlertActionConfigurationModel * actionConfigurationModelForth = [[SHUIAlertActionConfigurationModel alloc] init];
+    actionConfigurationModelForth.alertActionTitle = @"选项二";
+    actionConfigurationModelForth.actionStyle = UIAlertActionStyleDefault;
+    actionConfigurationModelForth.actionBlock = ^(UIAlertAction *action) {
+        
+        NSLog(@"确定");
+        if (alertControl) {
+            
+            [SHAlertViewManagerLibrary deleShowView:actionSheet];
+        }
+        else{
+            
+            NSLog(@"指针为Nil");
+        }
+        
+    };
+    [alertControllerConfigurationModelTwo.actionConfigurationModelsArray addObject:actionConfigurationModelForth];
+    
+    actionSheet = [SHAlertViewManagerLibrary pushAlertControllerWithConfigurationModel:alertControllerConfigurationModelTwo];
+    
     [self addView:nil];
     [self addAlert:nil];
     [self addAlert:nil];

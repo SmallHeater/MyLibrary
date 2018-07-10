@@ -18,18 +18,21 @@
 
 @implementation SHAlertViewManagerLibrary
 
-#pragma mark  ----  自定义函数
+#pragma mark  ----  生命周期函数
 +(SHAlertViewManagerLibrary *)sharedManager{
     
     static SHAlertViewManagerLibrary * manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
         manager = [[SHAlertViewManagerLibrary alloc] init];
     });
     return manager;
 }
 
-#pragma mark  ----  将需要弹出展示的view给管理类(可接收 UIView,UIAlertView,UIAlertController,UIViewController类型)
+#pragma mark  ----  自定义函数
+
+//将需要弹出展示的view给管理类(可接收 UIView,UIAlertView,UIAlertController,UIViewController类型)
 +(void)addShowView:(id)showView{
     
     if (showView && ([showView isKindOfClass:[UIView class]] || [showView isKindOfClass:[UIAlertView  class]] || [showView isKindOfClass:[UIAlertController class]] || [showView isKindOfClass:[UIActionSheet class]])){
@@ -42,7 +45,7 @@
     }
 }
 
-#pragma mark  ----  将已隐藏的view从管理类中移除
+//将已隐藏的view从管理类中移除
 +(void)deleShowView:(id)showView{
     
     if (showView && ([showView isKindOfClass:[UIView class]] || [showView isKindOfClass:[UIAlertView  class]] || [showView isKindOfClass:[UIAlertController class]] || [showView isKindOfClass:[UIActionSheet class]])){
@@ -55,21 +58,62 @@
     }
 }
 
-#pragma mark  ----  传入字符串，判空处理后传出
-+(NSString *)getString:(NSString *)str
-{
-    NSString * titleString;
-    if (str && str.length > 0)
-    {
-        titleString = @"";
+//创建alertViewController并弹出
++(UIAlertController *)pushAlertControllerWithConfigurationModel:(SHAlertControllerConfigurationModel *)configurationModel{
+    
+    NSString * alertTitle;
+    if (configurationModel.alertTitle) {
+        
+        alertTitle = configurationModel.alertTitle;
     }
-    else
-    {
-        titleString = str;
+    else{
+        
+        alertTitle = @"";
     }
-    return titleString;
+    
+    NSString * alertMessage;
+    if (configurationModel.alertMessage) {
+        
+        alertMessage = configurationModel.alertMessage;
+    }
+    else{
+        
+        alertMessage  =@"";
+    }
+    
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:alertTitle message:alertMessage preferredStyle:configurationModel.alertControllerStyle];
+    
+    for (NSUInteger i = 0; i < configurationModel.actionConfigurationModelsArray.count; i++) {
+        
+        SHUIAlertActionConfigurationModel * actionConfigurationModel = configurationModel.actionConfigurationModelsArray[i];
+        
+        NSString * actionTitle;
+        if (actionConfigurationModel.alertActionTitle) {
+            
+            actionTitle = actionConfigurationModel.alertActionTitle;
+        }
+        else{
+            
+            actionTitle = @"";
+        }
+        
+        UIAlertActionStyle alertActionStyle;
+        if (actionConfigurationModel.actionStyle) {
+            
+            alertActionStyle = actionConfigurationModel.actionStyle;
+        }
+        else{
+            
+            alertActionStyle = UIAlertActionStyleDefault;
+        }
+        
+        UIAlertAction * action = [UIAlertAction actionWithTitle:actionTitle style:alertActionStyle handler:actionConfigurationModel.actionBlock];
+        [alertController addAction:action];
+    }
+    
+    [SHAlertViewManagerLibrary addShowView:alertController];
+    return alertController;
 }
-
 
 #pragma mark  ----  懒加载
 -(AlertViewManager *)manager
