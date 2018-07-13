@@ -11,5 +11,6 @@
 
 
 @interface SHUIImagePickerControllerLibrary : NSObject
+//传入允许选择的的最大图片数，回调选中的图片的模型数组
 +(void)goToSHUIImagePickerViewControllerWithMaxImageSelectCount:(NSUInteger)maxCount anResultBlock:(void(^)(NSMutableArray<SHAssetModel *> * arr))result;
 @end

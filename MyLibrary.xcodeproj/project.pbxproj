@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		624E117820F454FD003BDE9D /* SHAlertControllerConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 624E117720F454FD003BDE9D /* SHAlertControllerConfigurationModel.m */; };
 		624E117B20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 624E117A20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m */; };
+		624E117F20F4AEC5003BDE9D /* BigPictureBrowsingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 624E117E20F4AEC5003BDE9D /* BigPictureBrowsingView.m */; };
+		624E118320F4B22E003BDE9D /* BigImageViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 624E118220F4B22E003BDE9D /* BigImageViewCollectionViewCell.m */; };
 		626DFDA020723D2000940248 /* SHScaleControlLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DFD9E20723D2000940248 /* SHScaleControlLibrary.m */; };
 		626DFDA320723E0F00940248 /* ScaleControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DFDA120723E0E00940248 /* ScaleControl.m */; };
 		626DFDA720723E2100940248 /* ScaleControlConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 626DFDA620723E2000940248 /* ScaleControlConfigurationModel.m */; };
@@ -294,6 +296,10 @@
 		624E117720F454FD003BDE9D /* SHAlertControllerConfigurationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAlertControllerConfigurationModel.m; sourceTree = "<group>"; };
 		624E117920F4561A003BDE9D /* SHUIAlertActionConfigurationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHUIAlertActionConfigurationModel.h; sourceTree = "<group>"; };
 		624E117A20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHUIAlertActionConfigurationModel.m; sourceTree = "<group>"; };
+		624E117D20F4AEC5003BDE9D /* BigPictureBrowsingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BigPictureBrowsingView.h; sourceTree = "<group>"; };
+		624E117E20F4AEC5003BDE9D /* BigPictureBrowsingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BigPictureBrowsingView.m; sourceTree = "<group>"; };
+		624E118120F4B22E003BDE9D /* BigImageViewCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BigImageViewCollectionViewCell.h; sourceTree = "<group>"; };
+		624E118220F4B22E003BDE9D /* BigImageViewCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BigImageViewCollectionViewCell.m; sourceTree = "<group>"; };
 		626DFD9320723CDF00940248 /* libSHScaleControlLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHScaleControlLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		626DFD9D20723D2000940248 /* SHScaleControlLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHScaleControlLibrary.h; sourceTree = "<group>"; };
 		626DFD9E20723D2000940248 /* SHScaleControlLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHScaleControlLibrary.m; sourceTree = "<group>"; };
@@ -591,6 +597,15 @@
 				624E117A20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		624E118020F4B1FC003BDE9D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				624E118120F4B22E003BDE9D /* BigImageViewCollectionViewCell.h */,
+				624E118220F4B22E003BDE9D /* BigImageViewCollectionViewCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		626DFD9420723CDF00940248 /* SHScaleControlLibrary */ = {
@@ -911,6 +926,7 @@
 		62D4E4B5206DFECB0063491A /* SHBigPictureBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				624E118020F4B1FC003BDE9D /* Cell */,
 				62D4E529206E232F0063491A /* Interface */,
 				62D4E526206E232F0063491A /* UIView */,
 			);
@@ -1081,6 +1097,8 @@
 			children = (
 				62D4E527206E232F0063491A /* BigPictureBrowsing.h */,
 				62D4E528206E232F0063491A /* BigPictureBrowsing.m */,
+				624E117D20F4AEC5003BDE9D /* BigPictureBrowsingView.h */,
+				624E117E20F4AEC5003BDE9D /* BigPictureBrowsingView.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1707,7 +1725,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				624E118320F4B22E003BDE9D /* BigImageViewCollectionViewCell.m in Sources */,
 				62D4E52C206E232F0063491A /* BigPictureBrowsing.m in Sources */,
+				624E117F20F4AEC5003BDE9D /* BigPictureBrowsingView.m in Sources */,
 				62D4E52D206E232F0063491A /* SHBigPictureBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

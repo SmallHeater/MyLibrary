@@ -10,15 +10,12 @@
 #import "SHAssetModel.h"
 
 
-
-
 @interface SHUIImagePickerController ()
+
 //当前相册中的所有图片
 @property (nonatomic,strong) NSMutableArray<SHAssetModel *> * shAssetModelArray;
-
 //相机模型
 @property (nonatomic,strong) SHAssetModel * cameraModel;
-
 
 @end
 

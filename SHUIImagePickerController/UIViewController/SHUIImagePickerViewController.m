@@ -228,12 +228,16 @@
 -(void)backBtnClicked:(UIButton *)backBtn{
 
     if (self.navigationController) {
+        
         if (self.navigationController.viewControllers.count == 1) {
+            
             [self.navigationController dismissViewControllerAnimated:NO completion:nil];
         }else{
+            
             [self.navigationController popViewControllerAnimated:YES];
         }
     }else{
+        
         [self dismissViewControllerAnimated:NO completion:nil];
     }
 }
@@ -313,7 +317,9 @@
 }
 
 -(UILabel *)titleLabel{
+    
     if (!_titleLabel) {
+        
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.backBtn.frame), 20, SCREENWIDTH - CGRectGetMaxX(self.backBtn.frame) * 2, 44)];
         _titleLabel.textColor = Color_FFFFFF;
         _titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];

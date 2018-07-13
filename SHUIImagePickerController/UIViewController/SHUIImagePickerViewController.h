@@ -12,7 +12,6 @@
 
 typedef void(^resultBlock)(NSMutableArray<SHAssetModel *> * selectModelArray);
 
-
 @protocol SHUIImagePickerProtocol <NSObject>
 
 -(void)finishSelectedWithArray:(NSMutableArray *)array;
@@ -24,6 +23,6 @@ typedef void(^resultBlock)(NSMutableArray<SHAssetModel *> * selectModelArray);
 //代理和Block两种回调二选一
 @property (nonatomic,strong) resultBlock block;
 
-
 @property (nonatomic,weak) id<SHUIImagePickerProtocol>delegate;
+
 @end
