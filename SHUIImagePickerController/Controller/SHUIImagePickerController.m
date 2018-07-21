@@ -7,15 +7,15 @@
 //
 
 #import "SHUIImagePickerController.h"
-#import "SHAssetModel.h"
-
+#import "SHAssetImageModel.h"
+#import "SHAssetVideoModel.h"
 
 @interface SHUIImagePickerController ()
 
 //当前相册中的所有图片
-@property (nonatomic,strong) NSMutableArray<SHAssetModel *> * shAssetModelArray;
+@property (nonatomic,strong) NSMutableArray<SHAssetBaseModel *> * shAssetModelArray;
 //相机模型
-@property (nonatomic,strong) SHAssetModel * cameraModel;
+@property (nonatomic,strong) SHAssetImageModel * cameraModel;
 
 @end
 
@@ -36,28 +36,76 @@
 
 #pragma mark  ----  自定义函数
 
-- (void)loadAllPhoto:(void(^)(NSMutableArray<SHAssetModel *> *arr))result
+- (void)loadAllPhoto:(void(^)(NSMutableArray *arr))result
 {
     [self.shAssetModelArray removeAllObjects];
-    
-    //添加去相机模型
-    [self.shAssetModelArray addObject:self.cameraModel];
     
     __weak __typeof(self)weakSelf = self;
     PHFetchOptions *allPhotosOptions = [PHFetchOptions new];
     allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]]; //按照时间倒叙排列
-    PHFetchResult *allPhotosResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:allPhotosOptions];
+    
+    //添加去相机模型
+    [self.shAssetModelArray addObject:self.cameraModel];
+    
+    PHAssetMediaType type;
+    if (self.sourceType == SourceImage) {
+        
+        type = PHAssetMediaTypeImage;
+    }
+    else if (self.sourceType == SourceVideo){
+        
+        type = PHAssetMediaTypeVideo;
+    }
+    else if (self.sourceType == SourceAudio){
+        
+        type = PHAssetMediaTypeAudio;
+    }
+    else{
+        
+        type = PHAssetMediaTypeImage;
+    }
+
+    PHFetchResult *allPhotosResult = [PHAsset fetchAssetsWithMediaType:type options:allPhotosOptions];
     
     if (allPhotosResult.count > 0) {
      
         [allPhotosResult enumerateObjectsUsingBlock:^(PHAsset *asset, NSUInteger idx, BOOL *stop) {
 
-            SHAssetModel * mAsset = [[SHAssetModel alloc] initWithAsset:asset];
-            [weakSelf.shAssetModelArray addObject:mAsset];
-            if (idx ==  allPhotosResult.count - 1) {
+            // 获取一个资源（PHAsset）
+            if (asset.mediaType == PHAssetMediaTypeVideo) {
                 
-                result(weakSelf.shAssetModelArray);
-                [weakSelf.shAssetModelArray removeAllObjects];
+                PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
+                options.version = PHImageRequestOptionsVersionCurrent;
+                options.deliveryMode = PHVideoRequestOptionsDeliveryModeAutomatic;
+                
+                PHImageManager *manager = [PHImageManager defaultManager];
+                [manager requestAVAssetForVideo:asset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+                    AVURLAsset *urlAsset = (AVURLAsset *)asset;
+                    
+                    if ([asset isKindOfClass:[AVURLAsset class]]) {
+                     
+                        NSURL *url = urlAsset.URL;
+                        SHAssetVideoModel * videoModel = [[SHAssetVideoModel alloc] init];
+                        videoModel.videoUrl = url;
+                        [weakSelf.shAssetModelArray addObject:videoModel];
+                    }
+                    
+                    if (idx ==  allPhotosResult.count - 1) {
+                        
+                        result(weakSelf.shAssetModelArray);
+                        [weakSelf.shAssetModelArray removeAllObjects];
+                    }
+                }];
+            }
+            else{
+                
+                SHAssetImageModel * mAsset = [[SHAssetImageModel alloc] initWithAsset:asset];
+                [weakSelf.shAssetModelArray addObject:mAsset];
+                if (idx ==  allPhotosResult.count - 1) {
+                    
+                    result(weakSelf.shAssetModelArray);
+                    [weakSelf.shAssetModelArray removeAllObjects];
+                }
             }
         }];
     }
@@ -145,7 +193,7 @@
 }
 
 #pragma mark  ----  懒加载
--(NSMutableArray<SHAssetModel *> *)shAssetModelArray{
+-(NSMutableArray<SHAssetBaseModel *> *)shAssetModelArray{
 
     if (!_shAssetModelArray) {
         
@@ -154,11 +202,11 @@
     return _shAssetModelArray;
 }
 
--(SHAssetModel *)cameraModel{
+-(SHAssetImageModel *)cameraModel{
 
     if (!_cameraModel) {
         
-        _cameraModel = [[SHAssetModel alloc] init];
+        _cameraModel = [[SHAssetImageModel alloc] init];
         _cameraModel.thumbnails = [UIImage imageNamed:@"SHUIImagePickerControllerLibrarySource.bundle/camera.tiff"];
     }
     return _cameraModel;

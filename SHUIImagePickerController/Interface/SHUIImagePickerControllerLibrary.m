@@ -20,6 +20,7 @@
         return;
     }
     
+    [SHUIImagePickerController sharedManager].sourceType = SourceVideo;
     [SHUIImagePickerController sharedManager].canSelectImageCount = maxCount;
     //权限判断
     if ([[SHUIImagePickerController sharedManager] getAlbumAuthority] == AlbumStatusAuthorized) {

@@ -9,7 +9,6 @@
 #import "SHUIImagePickerControllerDemoVC.h"
 #import "SHUIImagePickerControllerLibrary.h"
 #import "SHNavigationBar.h"
-
 #import "SHBigPictureBrowser.h"
 
 
@@ -22,7 +21,7 @@
 @property (nonatomic,strong) UIScrollView * imageViewBGScrollView;
 @property (nonatomic,strong) UIButton * gotoImagePickerBnt;
 //存储图片模型的数组
-@property (nonatomic,strong) NSMutableArray<SHAssetModel *> * imageModelArray;
+@property (nonatomic,strong) NSMutableArray<SHAssetBaseModel *> * imageModelArray;
 @end
 
 @implementation SHUIImagePickerControllerDemoVC
@@ -57,7 +56,7 @@
     }
     [self.imageModelArray removeAllObjects];
     
-    [SHUIImagePickerControllerLibrary goToSHUIImagePickerViewControllerWithMaxImageSelectCount:500 anResultBlock:^(NSMutableArray<SHAssetModel *> *arr) {
+    [SHUIImagePickerControllerLibrary goToSHUIImagePickerViewControllerWithMaxImageSelectCount:500 anResultBlock:^(NSMutableArray<SHAssetBaseModel *> *arr) {
         
         NSMutableArray * resultArray = [[NSMutableArray alloc] initWithArray:arr];
         [self.imageModelArray addObjectsFromArray:arr];
@@ -67,22 +66,31 @@
            
             for (NSUInteger i = 0; i < resultArray.count; i++) {
                 
-                SHAssetModel * model = resultArray[i];
-                UIImageView * imageView = [[UIImageView alloc] initWithImage:model.thumbnails];
-                imageView.tag = IMAGEBASETAG + i;
-                imageView.frame = CGRectMake(i * 95, 5, 90, 90);
-                imageView.userInteractionEnabled = YES;
-                UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTaped:)];
-                [imageView addGestureRecognizer:tap];
+                SHAssetBaseModel * model = resultArray[i];
                 
-                if (i == resultArray.count - 1) {
+                if ([model isMemberOfClass:[SHAssetImageModel class]]) {
+                 
+                    UIImageView * imageView = [[UIImageView alloc] initWithImage:model.thumbnails];
+                    imageView.tag = IMAGEBASETAG + i;
+                    imageView.frame = CGRectMake(i * 95, 5, 90, 90);
+                    imageView.userInteractionEnabled = YES;
+                    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTaped:)];
+                    [imageView addGestureRecognizer:tap];
                     
-                    self.imageViewBGScrollView.contentSize = CGSizeMake(resultArray.count * 95, 90);
+                    if (i == resultArray.count - 1) {
+                        
+                        self.imageViewBGScrollView.contentSize = CGSizeMake(resultArray.count * 95, 90);
+                    }
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        [self.imageViewBGScrollView addSubview:imageView];
+                    });
                 }
-                dispatch_async(dispatch_get_main_queue(), ^{
+                else if([model isMemberOfClass:[SHAssetVideoModel class]]){
                     
-                    [self.imageViewBGScrollView addSubview:imageView];
-                });
+                    SHAssetVideoModel * videoModel = (SHAssetVideoModel *)model;
+                    NSLog(@"选中视频路径：%@",videoModel.videoUrl.absoluteString);
+                }
             }
         });
     }];
@@ -97,7 +105,7 @@
     NSMutableArray * imageArray = [[NSMutableArray alloc] init];
     for (NSUInteger i = 0; i < self.imageModelArray.count; i++) {
         
-        SHAssetModel * model = self.imageModelArray[i];
+        SHAssetImageModel * model = (SHAssetImageModel *)self.imageModelArray[i];
         [imageArray addObject:model.originalImage];
     }
     
@@ -150,7 +158,7 @@
     return _imageViewBGScrollView;
 }
 
--(NSMutableArray<SHAssetModel *> *)imageModelArray{
+-(NSMutableArray<SHAssetBaseModel *> *)imageModelArray{
     
     if (!_imageModelArray) {
         

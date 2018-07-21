@@ -7,12 +7,20 @@
 //
 
 #import "SHUIImagePickerViewController.h"
-#import "SHCollectionViewCell.h"
 #import "SHUIImagePickerController.h"
-#import "SHCollectionViewCell.h"
-#import "SHAssetModel.h"
+#import "SHImageCollectionViewCell.h"
+#import "SHVideoCollectionViewCell.h"
+#import "SHAssetBaseModel.h"
+#import "SHAssetImageModel.h"
+#import "SHAssetVideoModel.h"
 #import "MBProgressHUD.h"
 #import <objc/message.h>
+
+
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
+
+
 
 #define CELLSELECTBTNBASETAG  1010
 
@@ -28,9 +36,13 @@
 @property (nonatomic,strong) UIButton * finishBtn;
 @property (nonatomic,retain) UICollectionView *collectionView;
 //存储模型的数组
-@property (nonatomic,strong) NSMutableArray<SHAssetModel *> * dataArray;
+@property (nonatomic,strong) NSMutableArray<SHAssetBaseModel *> * dataArray;
 //存储选中的模型的数组
-@property (nonatomic,strong) NSMutableArray<SHAssetModel *> * selectedModelArray;
+@property (nonatomic,strong) NSMutableArray<SHAssetBaseModel *> * selectedModelArray;
+
+//视频播放器
+@property (nonatomic,strong) AVPlayerViewController * playerVC;
+
 @end
 
 @implementation SHUIImagePickerViewController
@@ -44,10 +56,13 @@
     [self.view addSubview:self.shNavigationBar];
     [self.view addSubview:self.collectionView];
     
-    [[SHUIImagePickerController sharedManager] loadAllPhoto:^(NSMutableArray<SHAssetModel *> *arr) {
+    [[SHUIImagePickerController sharedManager] loadAllPhoto:^(NSMutableArray *arr) {
         
         [self.dataArray addObjectsFromArray:arr];
-        [self.collectionView reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+           
+            [self.collectionView reloadData];
+        });
     }];
 }
 
@@ -106,19 +121,45 @@
     }
     else{
         
-        if (NSClassFromString(@"SHBigPictureBrowser")) {
+         SHAssetBaseModel * model = [self.dataArray objectAtIndex:indexPath.row];
+        if ([model isMemberOfClass:[SHAssetVideoModel class]]) {
             
-            //如果有大图浏览组件，则相册选择组件也支持大图浏览
-            CGRect viewFrame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
-            NSMutableArray * imageArray = [[NSMutableArray alloc] init];
-            for (NSUInteger i = 1; i < self.dataArray.count; i++) {
+            SHAssetVideoModel * videoModel = (SHAssetVideoModel *)model;
+            //播放视频
+            if (!self.playerVC) {
                 
-                SHAssetModel * model = [self.dataArray objectAtIndex:i];
-                [imageArray addObject:model.thumbnails];
+                self.playerVC = [[AVPlayerViewController alloc] init];
+                self.playerVC.player = [AVPlayer playerWithURL:videoModel.videoUrl];
+                self.playerVC.view.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
+                self.playerVC.showsPlaybackControls = YES;
+            }else{
+                
+                self.playerVC.player = [AVPlayer playerWithURL:videoModel.videoUrl];
             }
-            NSUInteger index = indexPath.row - 1;
-            UIView * view = ((id(*)(id,SEL,CGRect,NSMutableArray *,NSUInteger)) objc_msgSend)(NSClassFromString(@"SHBigPictureBrowser"),NSSelectorFromString(@"getViewWithFrame:andImageArray:andSelectedIndex:"),viewFrame,imageArray,index);
-            [[UIApplication sharedApplication].keyWindow addSubview:view];
+            
+            [self presentViewController:self.playerVC animated:YES completion:^{
+                
+            }];
+            [self.playerVC.player play];
+            
+        }
+        else if ([model isMemberOfClass:[SHAssetImageModel class]]){
+            
+            //大图浏览
+            if (NSClassFromString(@"SHBigPictureBrowser")) {
+                
+                //如果有大图浏览组件，则相册选择组件也支持大图浏览
+                CGRect viewFrame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
+                NSMutableArray * imageArray = [[NSMutableArray alloc] init];
+                for (NSUInteger i = 1; i < self.dataArray.count; i++) {
+                    
+                    SHAssetBaseModel * model = [self.dataArray objectAtIndex:i];
+                    [imageArray addObject:model.thumbnails];
+                }
+                NSUInteger index = indexPath.row - 1;
+                UIView * view = ((id(*)(id,SEL,CGRect,NSMutableArray *,NSUInteger)) objc_msgSend)(NSClassFromString(@"SHBigPictureBrowser"),NSSelectorFromString(@"getViewWithFrame:andImageArray:andSelectedIndex:"),viewFrame,imageArray,index);
+                [[UIApplication sharedApplication].keyWindow addSubview:view];
+            }
         }
     }
 }
@@ -129,27 +170,41 @@
     return self.dataArray.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    SHCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"SHCollectionViewCell" forIndexPath:indexPath];
-    
-    if (indexPath.row == 0) {
+    SHAssetBaseModel * model = [self.dataArray objectAtIndex:indexPath.row];
+    if ([model isMemberOfClass:[SHAssetImageModel class]]) {
         
-        SHAssetModel * model = [self.dataArray objectAtIndex:indexPath.row];
-        cell.imageView.image = model.thumbnails;
-        cell.selectBtn.hidden = YES;
+        //图片资源
+        SHImageCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"SHImageCollectionViewCell" forIndexPath:indexPath];
+        
+        if (indexPath.row == 0) {
+            
+            SHAssetBaseModel * model = [self.dataArray objectAtIndex:indexPath.row];
+            cell.imageView.image = model.thumbnails;
+            cell.selectBtn.hidden = YES;
+        }
+        else{
+            
+            cell.imageView.image = model.thumbnails;
+            cell.selectBtn.hidden = NO;
+            [cell.selectBtn setSelected:model.selected];
+            cell.selectBtn.tag = CELLSELECTBTNBASETAG + indexPath.row;
+            [cell.selectBtn addTarget:self action:@selector(selectBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        return cell;
     }
-    else{
-    
-        SHAssetModel * model = [self.dataArray objectAtIndex:indexPath.row];
-        cell.imageView.image = model.thumbnails;
+    else if([model isMemberOfClass:[SHAssetVideoModel class]]){
+        
+        //视频资源
+        SHVideoCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"SHVideoCollectionViewCell" forIndexPath:indexPath];
         cell.selectBtn.hidden = NO;
         [cell.selectBtn setSelected:model.selected];
         cell.selectBtn.tag = CELLSELECTBTNBASETAG + indexPath.row;
         [cell.selectBtn addTarget:self action:@selector(selectBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        return cell;
     }
-    return cell;
+    return nil;
 }
 
 #pragma mark  ----  UICollectionViewDelegateFlowLayout
@@ -265,7 +320,7 @@
         if ([SHUIImagePickerController sharedManager].canSelectImageCount > 0) {
          
             btn.selected = !btn.selected;
-            SHAssetModel * model = self.dataArray[btn.tag - CELLSELECTBTNBASETAG];
+            SHAssetBaseModel * model = self.dataArray[btn.tag - CELLSELECTBTNBASETAG];
             model.selected = btn.selected;
             [SHUIImagePickerController sharedManager].canSelectImageCount--;
             [self.selectedModelArray addObject:model];
@@ -278,7 +333,7 @@
     else{
     
         btn.selected = !btn.selected;
-        SHAssetModel * model = self.dataArray[btn.tag - CELLSELECTBTNBASETAG];
+        SHAssetBaseModel * model = self.dataArray[btn.tag - CELLSELECTBTNBASETAG];
         model.selected = btn.selected;
         [SHUIImagePickerController sharedManager].canSelectImageCount++;
         [self.selectedModelArray removeObject:model];
@@ -354,7 +409,8 @@
         [_collectionView setDataSource:self];
         [_collectionView setDelegate:self];
         
-        [_collectionView registerClass:[SHCollectionViewCell class] forCellWithReuseIdentifier:@"SHCollectionViewCell"];
+        [_collectionView registerClass:[SHImageCollectionViewCell class] forCellWithReuseIdentifier:@"SHImageCollectionViewCell"];
+        [_collectionView registerClass:[SHVideoCollectionViewCell class] forCellWithReuseIdentifier:@"SHVideoCollectionViewCell"];
     }
     return _collectionView;
 }

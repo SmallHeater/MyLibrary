@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 typedef NS_OPTIONS(NSUInteger, CamareType) {
     CamareTypeSystem = 1 << 0,
     CamareTypeSmartLicense = 1 << 1,
@@ -32,19 +34,30 @@ typedef NS_ENUM(NSUInteger,AlbumState){
     AlbumStatusAuthorized         //用户已授权此应用程序访问照片数据。
 };
 
-@class SHAssetModel;
+
+//资源类型
+typedef NS_ENUM(NSInteger, SourceType) {
+    SourceImage   = 0,
+    SourceVideo   = 1,
+    SourceAudio   = 2,
+};
+
+
 
 @interface SHUIImagePickerController : NSObject
 
 @property (nonatomic,assign) CamareType tkCamareType;
 //剩余选择照片数
 @property (nonatomic,assign) NSUInteger canSelectImageCount;
+//资源类型
+@property (nonatomic,assign) SourceType sourceType;
+
 
 +(SHUIImagePickerController *)sharedManager;
 
 
 //返回包含所有模型的数组
-- (void)loadAllPhoto:(void(^)(NSMutableArray<SHAssetModel *> *arr))result;
+- (void)loadAllPhoto:(void(^)(NSMutableArray *arr))result;
 
 
 //判断有无使用相册权限

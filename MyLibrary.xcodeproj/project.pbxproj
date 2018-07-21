@@ -22,6 +22,11 @@
 		626DFDB7207260B000940248 /* A_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 626DFDB3207260B000940248 /* A_1@3x.png */; };
 		626DFDB8207260B000940248 /* videoplaceholdersmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 626DFDB4207260B000940248 /* videoplaceholdersmall@2x.png */; };
 		626FCDAA20BE6B2A00ED253A /* SHCameraTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62954C3320B3E7B5008384CC /* SHCameraTopView.m */; };
+		6282765C2101D50C0015447E /* SHAssetVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6282765B2101D50C0015447E /* SHAssetVideoModel.m */; };
+		6282765F2101DA590015447E /* SHAssetBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6282765E2101DA590015447E /* SHAssetBaseModel.m */; };
+		628276662102C8410015447E /* paly@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 628276642102C8400015447E /* paly@2x.png */; };
+		628276672102C8410015447E /* paly@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 628276652102C8410015447E /* paly@3x.png */; };
+		6282766A2102C95D0015447E /* SHVideoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 628276692102C95D0015447E /* SHVideoCollectionViewCell.m */; };
 		62945D3B2086E1EB0026BA41 /* SHCameraLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 62945D3A2086E1EB0026BA41 /* SHCameraLibrary.m */; };
 		62945D3E2086E2240026BA41 /* SHCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62945D3D2086E2240026BA41 /* SHCameraVC.m */; };
 		62945D3F2086E6310026BA41 /* libSHCameraLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62945D2E2086E1AF0026BA41 /* libSHCameraLibrary.a */; };
@@ -65,8 +70,8 @@
 		62D4E4C9206E044B0063491A /* UIColor+Translate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E4C8206E044B0063491A /* UIColor+Translate.m */; };
 		62D4E4DC206E09BF0063491A /* SHUIImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E4CC206E09BE0063491A /* SHUIImagePickerController.m */; };
 		62D4E4DD206E09BF0063491A /* SHUIImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E4CF206E09BE0063491A /* SHUIImagePickerViewController.m */; };
-		62D4E4DE206E09BF0063491A /* SHCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E4D2206E09BE0063491A /* SHCollectionViewCell.m */; };
-		62D4E4DF206E09BF0063491A /* SHAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E4D5206E09BF0063491A /* SHAssetModel.m */; };
+		62D4E4DE206E09BF0063491A /* SHImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E4D2206E09BE0063491A /* SHImageCollectionViewCell.m */; };
+		62D4E4DF206E09BF0063491A /* SHAssetImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E4D5206E09BF0063491A /* SHAssetImageModel.m */; };
 		62D4E4E0206E09BF0063491A /* SHUIImagePickerControllerLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E4D8206E09BF0063491A /* SHUIImagePickerControllerLibrary.m */; };
 		62D4E4E4206E0AB30063491A /* SHUIImagePickerControllerDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E4E3206E0AB30063491A /* SHUIImagePickerControllerDemoVC.m */; };
 		62D4E4E8206E0C620063491A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D4E4E7206E0C620063491A /* MBProgressHUD.m */; };
@@ -315,6 +320,14 @@
 		626DFDB2207260B000940248 /* A_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A_1@2x.png"; sourceTree = "<group>"; };
 		626DFDB3207260B000940248 /* A_1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A_1@3x.png"; sourceTree = "<group>"; };
 		626DFDB4207260B000940248 /* videoplaceholdersmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videoplaceholdersmall@2x.png"; sourceTree = "<group>"; };
+		6282765A2101D50C0015447E /* SHAssetVideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHAssetVideoModel.h; sourceTree = "<group>"; };
+		6282765B2101D50C0015447E /* SHAssetVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAssetVideoModel.m; sourceTree = "<group>"; };
+		6282765D2101DA590015447E /* SHAssetBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHAssetBaseModel.h; sourceTree = "<group>"; };
+		6282765E2101DA590015447E /* SHAssetBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAssetBaseModel.m; sourceTree = "<group>"; };
+		628276642102C8400015447E /* paly@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paly@2x.png"; sourceTree = "<group>"; };
+		628276652102C8410015447E /* paly@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paly@3x.png"; sourceTree = "<group>"; };
+		628276682102C95D0015447E /* SHVideoCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHVideoCollectionViewCell.h; sourceTree = "<group>"; };
+		628276692102C95D0015447E /* SHVideoCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHVideoCollectionViewCell.m; sourceTree = "<group>"; };
 		62945D2E2086E1AF0026BA41 /* libSHCameraLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHCameraLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		62945D392086E1EB0026BA41 /* SHCameraLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCameraLibrary.h; sourceTree = "<group>"; };
 		62945D3A2086E1EB0026BA41 /* SHCameraLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCameraLibrary.m; sourceTree = "<group>"; };
@@ -396,10 +409,10 @@
 		62D4E4CC206E09BE0063491A /* SHUIImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHUIImagePickerController.m; sourceTree = "<group>"; };
 		62D4E4CE206E09BE0063491A /* SHUIImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHUIImagePickerViewController.h; sourceTree = "<group>"; };
 		62D4E4CF206E09BE0063491A /* SHUIImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHUIImagePickerViewController.m; sourceTree = "<group>"; };
-		62D4E4D1206E09BE0063491A /* SHCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHCollectionViewCell.h; sourceTree = "<group>"; };
-		62D4E4D2206E09BE0063491A /* SHCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHCollectionViewCell.m; sourceTree = "<group>"; };
-		62D4E4D4206E09BF0063491A /* SHAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAssetModel.h; sourceTree = "<group>"; };
-		62D4E4D5206E09BF0063491A /* SHAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAssetModel.m; sourceTree = "<group>"; };
+		62D4E4D1206E09BE0063491A /* SHImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHImageCollectionViewCell.h; sourceTree = "<group>"; };
+		62D4E4D2206E09BE0063491A /* SHImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHImageCollectionViewCell.m; sourceTree = "<group>"; };
+		62D4E4D4206E09BF0063491A /* SHAssetImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAssetImageModel.h; sourceTree = "<group>"; };
+		62D4E4D5206E09BF0063491A /* SHAssetImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAssetImageModel.m; sourceTree = "<group>"; };
 		62D4E4D7206E09BF0063491A /* SHUIImagePickerControllerLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHUIImagePickerControllerLibrary.h; sourceTree = "<group>"; };
 		62D4E4D8206E09BF0063491A /* SHUIImagePickerControllerLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHUIImagePickerControllerLibrary.m; sourceTree = "<group>"; };
 		62D4E4DB206E09BF0063491A /* SHUIImagePickerControllerLibrary.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHUIImagePickerControllerLibrary.pch; sourceTree = "<group>"; };
@@ -1000,8 +1013,10 @@
 		62D4E4D0206E09BE0063491A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				62D4E4D1206E09BE0063491A /* SHCollectionViewCell.h */,
-				62D4E4D2206E09BE0063491A /* SHCollectionViewCell.m */,
+				62D4E4D1206E09BE0063491A /* SHImageCollectionViewCell.h */,
+				62D4E4D2206E09BE0063491A /* SHImageCollectionViewCell.m */,
+				628276682102C95D0015447E /* SHVideoCollectionViewCell.h */,
+				628276692102C95D0015447E /* SHVideoCollectionViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1009,8 +1024,12 @@
 		62D4E4D3206E09BF0063491A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				62D4E4D4206E09BF0063491A /* SHAssetModel.h */,
-				62D4E4D5206E09BF0063491A /* SHAssetModel.m */,
+				62D4E4D4206E09BF0063491A /* SHAssetImageModel.h */,
+				62D4E4D5206E09BF0063491A /* SHAssetImageModel.m */,
+				6282765A2101D50C0015447E /* SHAssetVideoModel.h */,
+				6282765B2101D50C0015447E /* SHAssetVideoModel.m */,
+				6282765D2101DA590015447E /* SHAssetBaseModel.h */,
+				6282765E2101DA590015447E /* SHAssetBaseModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1037,6 +1056,8 @@
 		62D4E4F1206E0D360063491A /* SHUIImagePickerControllerLibrarySource */ = {
 			isa = PBXGroup;
 			children = (
+				628276642102C8400015447E /* paly@2x.png */,
+				628276652102C8410015447E /* paly@3x.png */,
 				62D4E4F8206E0D6F0063491A /* camera@2x.png */,
 				62D4E4F9206E0D700063491A /* camera@3x.png */,
 				62D4E4FC206E0D700063491A /* fanhui_w@2x.png */,
@@ -1555,6 +1576,8 @@
 				62D4E502206E0D700063491A /* selected@3x.png in Resources */,
 				62D4E501206E0D700063491A /* camera@3x.png in Resources */,
 				62D4E4FF206E0D700063491A /* fanhui_w@3x.png in Resources */,
+				628276672102C8410015447E /* paly@3x.png in Resources */,
+				628276662102C8410015447E /* paly@2x.png in Resources */,
 				62D4E503206E0D700063491A /* selected@2x.png in Resources */,
 				62D4E505206E0D700063491A /* noSelected@2x.png in Resources */,
 				62D4E4FE206E0D700063491A /* noSelected@3x.png in Resources */,
@@ -1713,11 +1736,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6282765F2101DA590015447E /* SHAssetBaseModel.m in Sources */,
 				62D4E4DC206E09BF0063491A /* SHUIImagePickerController.m in Sources */,
-				62D4E4DF206E09BF0063491A /* SHAssetModel.m in Sources */,
-				62D4E4DE206E09BF0063491A /* SHCollectionViewCell.m in Sources */,
+				62D4E4DF206E09BF0063491A /* SHAssetImageModel.m in Sources */,
+				62D4E4DE206E09BF0063491A /* SHImageCollectionViewCell.m in Sources */,
 				62D4E4DD206E09BF0063491A /* SHUIImagePickerViewController.m in Sources */,
 				62D4E4E0206E09BF0063491A /* SHUIImagePickerControllerLibrary.m in Sources */,
+				6282765C2101D50C0015447E /* SHAssetVideoModel.m in Sources */,
+				6282766A2102C95D0015447E /* SHVideoCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

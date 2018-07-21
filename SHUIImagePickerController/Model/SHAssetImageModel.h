@@ -4,13 +4,15 @@
 //
 //  Created by xianjunwang on 2017/10/24.
 //  Copyright © 2017年 xianjunwang. All rights reserved.
-//
+//  图片模型
 
 #import <Foundation/Foundation.h>
+#import "SHAssetBaseModel.h"
+
 
 @class PHAsset;
 
-@interface SHAssetModel : NSObject
+@interface SHAssetImageModel : SHAssetBaseModel
 
 /**
  *  PHAsset
@@ -27,18 +29,7 @@
  */
 @property (nonatomic, strong, readonly, nonnull) UIImage * previewImage;
 
-/**
- *  缩略图（默认尺寸kThumbnailTargetSize)
- */
-@property (nonatomic, strong,nonnull) UIImage * thumbnails;
-/**
- *  是否选中
- */
-@property (nonatomic) BOOL selected;
-/**
- *  唯一标识符
- */
-@property (nonatomic, strong, readonly, nonnull) NSString *identifier;
+
 
 /**
  *  初始化相片model

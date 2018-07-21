@@ -6,11 +6,11 @@
 //  Copyright © 2017年 xianjunwang. All rights reserved.
 //
 
-#import "SHAssetModel.h"
+#import "SHAssetImageModel.h"
 
 
 
-@implementation SHAssetModel
+@implementation SHAssetImageModel
 
 #pragma mark  ----  生命周期函数
 
@@ -43,8 +43,10 @@
 }
 
 - (UIImage *)thumbnails {
-    if (_thumbnails) {
-        return _thumbnails;
+    
+    if (super.thumbnails) {
+        
+        return super.thumbnails;
     }
     __block UIImage *resultImage;
     
@@ -59,27 +61,15 @@
         
         resultImage = result;
     }];
-    _thumbnails = resultImage;
+    self.thumbnails = resultImage;
     
-    return _thumbnails;
+    return self.thumbnails;
 }
 
-/*
-- (UIImage *)previewImage {
-    if (_previewImage) {
-        return _previewImage;
-    }
-    __block UIImage *resultImage;
-    
-    [[FMAlbumHelper shareManager] fetchImageWithAsset:self targetSize:kPreviewTargetSize completion:^(UIImage *_Nullable image, NSDictionary *_Nullable info) {
-        resultImage = image;
-    }];
-    _previewImage = resultImage;
-    
-    return _previewImage;
-}
-*/
+
+
 - (NSString *)identifier {
     return self.asset.localIdentifier;
 }
+
 @end

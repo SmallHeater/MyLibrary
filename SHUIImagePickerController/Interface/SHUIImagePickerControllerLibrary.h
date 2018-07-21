@@ -7,10 +7,13 @@
 //  相册组件,接口类
 
 #import <Foundation/Foundation.h>
-#import "SHAssetModel.h"
+#import "SHAssetBaseModel.h"
+#import "SHAssetImageModel.h"
+#import "SHAssetVideoModel.h"
+
 
 
 @interface SHUIImagePickerControllerLibrary : NSObject
 //传入允许选择的的最大图片数，回调选中的图片的模型数组
-+(void)goToSHUIImagePickerViewControllerWithMaxImageSelectCount:(NSUInteger)maxCount anResultBlock:(void(^)(NSMutableArray<SHAssetModel *> * arr))result;
++(void)goToSHUIImagePickerViewControllerWithMaxImageSelectCount:(NSUInteger)maxCount anResultBlock:(void(^)(NSMutableArray<SHAssetBaseModel *> * arr))result;
 @end

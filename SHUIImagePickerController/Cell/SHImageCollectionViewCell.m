@@ -6,9 +6,9 @@
 //  Copyright © 2017年 xianjunwang. All rights reserved.
 //
 
-#import "SHCollectionViewCell.h"
+#import "SHImageCollectionViewCell.h"
 
-@implementation SHCollectionViewCell
+@implementation SHImageCollectionViewCell
 
 #pragma mark  ----  生命周期函数
 
