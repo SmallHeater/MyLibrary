@@ -15,10 +15,8 @@
 #import "SHAssetVideoModel.h"
 #import "MBProgressHUD.h"
 #import <objc/message.h>
-
-
 #import <AVKit/AVKit.h>
-#import <AVFoundation/AVFoundation.h>
+
 
 
 
