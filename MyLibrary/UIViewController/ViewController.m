@@ -15,6 +15,8 @@
 #import "SHScanVC.h"
 #import "SHSpeechVC.h"
 #import "SHCameraLibraryVC.h"
+#import "PlayViewController.h"
+
 
 #define FIRSTLIBRARY @"相片选择器和大图浏览器"
 #define SECONDLIBRARY @"刻度尺组件"
@@ -24,6 +26,7 @@
 #define SIXTHLIBRARY @"扫一扫组件"
 #define SEVENTHLIBRARY @"语言转文字组件"
 #define EIGHTHLIBRARY @"自定义相机组件"
+#define PLAYERLIBRARY @"视频播放"
 
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -119,6 +122,12 @@
         UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nav animated:YES completion:nil];
     }
+    else if ([str isEqualToString:PLAYERLIBRARY]){
+        
+        PlayViewController * vc = [[PlayViewController alloc] init];
+        UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
 }
 #pragma mark  ----  UITableViewDataSource
 
@@ -182,7 +191,7 @@
     
     if (!_dataArray) {
         
-        _dataArray = [[NSArray alloc] initWithObjects:FIRSTLIBRARY,SECONDLIBRARY,THREELIBRARY,FOURTHLIBRARY,FIFTHLIBRARY,SIXTHLIBRARY,SEVENTHLIBRARY,EIGHTHLIBRARY,nil];
+        _dataArray = [[NSArray alloc] initWithObjects:FIRSTLIBRARY,SECONDLIBRARY,THREELIBRARY,FOURTHLIBRARY,FIFTHLIBRARY,SIXTHLIBRARY,SEVENTHLIBRARY,EIGHTHLIBRARY,PLAYERLIBRARY,nil];
     }
     return _dataArray;
 }

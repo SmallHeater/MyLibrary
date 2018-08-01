@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62325B40210ABBFC00F1A825 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62325B3F210ABBFC00F1A825 /* PlayViewController.m */; };
 		624E117820F454FD003BDE9D /* SHAlertControllerConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 624E117720F454FD003BDE9D /* SHAlertControllerConfigurationModel.m */; };
 		624E117B20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 624E117A20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m */; };
 		624E117F20F4AEC5003BDE9D /* BigPictureBrowsingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 624E117E20F4AEC5003BDE9D /* BigPictureBrowsingView.m */; };
@@ -297,6 +298,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		62325B3E210ABBFC00F1A825 /* PlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
+		62325B3F210ABBFC00F1A825 /* PlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
 		624E117620F454FD003BDE9D /* SHAlertControllerConfigurationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHAlertControllerConfigurationModel.h; sourceTree = "<group>"; };
 		624E117720F454FD003BDE9D /* SHAlertControllerConfigurationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAlertControllerConfigurationModel.m; sourceTree = "<group>"; };
 		624E117920F4561A003BDE9D /* SHUIAlertActionConfigurationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHUIAlertActionConfigurationModel.h; sourceTree = "<group>"; };
@@ -967,6 +970,8 @@
 				62CE0FCF2084A2C100D76822 /* SHSpeechVC.m */,
 				62945D402086E6630026BA41 /* SHCameraLibraryVC.h */,
 				62945D412086E6630026BA41 /* SHCameraLibraryVC.m */,
+				62325B3E210ABBFC00F1A825 /* PlayViewController.h */,
+				62325B3F210ABBFC00F1A825 /* PlayViewController.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -1710,6 +1715,7 @@
 				62D4E57A206E593F0063491A /* SDWebImageDownloaderOperation.m in Sources */,
 				62D4E580206E593F0063491A /* UIImage+MultiFormat.m in Sources */,
 				62D4E579206E593F0063491A /* SDWebImageDownloader.m in Sources */,
+				62325B40210ABBFC00F1A825 /* PlayViewController.m in Sources */,
 				62CE0FB52084870600D76822 /* SHScanVC.m in Sources */,
 				62D4E50A206E0DD00063491A /* SHNavigationBar.m in Sources */,
 				62D4E4C2206DFF980063491A /* ViewController.m in Sources */,

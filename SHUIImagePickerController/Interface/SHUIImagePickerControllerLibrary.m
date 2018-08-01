@@ -13,14 +13,14 @@
 
 @implementation SHUIImagePickerControllerLibrary
 
-+(void)goToSHUIImagePickerViewControllerWithMaxImageSelectCount:(NSUInteger)maxCount anResultBlock:(void (^)(NSMutableArray<SHAssetModel *> *))result{
++(void)goToSHUIImagePickerViewControllerWithMaxImageSelectCount:(NSUInteger)maxCount sourceType:(SourceType)type anResultBlock:(void(^)(NSMutableArray<SHAssetBaseModel *> * arr))result{
     
     if (maxCount == 0) {
         
         return;
     }
     
-    [SHUIImagePickerController sharedManager].sourceType = SourceVideo;
+    [SHUIImagePickerController sharedManager].sourceType = type;
     [SHUIImagePickerController sharedManager].canSelectImageCount = maxCount;
     //权限判断
     if ([[SHUIImagePickerController sharedManager] getAlbumAuthority] == AlbumStatusAuthorized) {

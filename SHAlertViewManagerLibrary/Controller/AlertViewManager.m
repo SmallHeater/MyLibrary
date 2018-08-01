@@ -92,26 +92,28 @@
     if ([showView isKindOfClass:[UIAlertView class]]){
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             [(UIAlertView*)showView show];
         });
     }
     else if ([showView isKindOfClass:[UIActionSheet class]]){
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             [(UIActionSheet*)showView showInView:[UIApplication sharedApplication].keyWindow];
         });
     }
     else if ([showView isKindOfClass:[UIAlertController class]]){
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[self topMostController] presentViewController:showView animated:NO completion:^{
-                
-            }];
+            
+            [[self topMostController] presentViewController:showView animated:NO completion:nil];
         });
     }
     else if ([showView isKindOfClass:[UIView class]]){
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             [[UIApplication sharedApplication].keyWindow addSubview:showView];
         });
     }
@@ -120,9 +122,17 @@
 - (UIViewController*) topMostController
 {
     UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
     while (topController.presentedViewController) {
         topController = topController.presentedViewController;
     }
+    
+    if ([topController isKindOfClass:[UINavigationController class]]) {
+        
+        UINavigationController * nav = (UINavigationController *)topController;
+        topController = nav.viewControllers.lastObject;
+    }
+    
     return topController;
 }
 

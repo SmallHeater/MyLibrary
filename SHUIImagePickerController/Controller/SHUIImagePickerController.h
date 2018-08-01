@@ -7,7 +7,7 @@
 //  控制器
 
 #import <Foundation/Foundation.h>
-
+#import "SHUIImagePickerControllerLibrary.h"
 
 
 typedef NS_OPTIONS(NSUInteger, CamareType) {
@@ -35,12 +35,7 @@ typedef NS_ENUM(NSUInteger,AlbumState){
 };
 
 
-//资源类型
-typedef NS_ENUM(NSInteger, SourceType) {
-    SourceImage   = 0,
-    SourceVideo   = 1,
-    SourceAudio   = 2,
-};
+
 
 
 

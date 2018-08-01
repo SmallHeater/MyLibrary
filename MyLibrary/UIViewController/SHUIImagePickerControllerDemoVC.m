@@ -15,11 +15,12 @@
 #define IMAGEBASETAG 1100
 
 @interface SHUIImagePickerControllerDemoVC ()
-//图片展示
+//图片,视频展示
 @property (nonatomic,strong) UILabel * label;
 //展示照片的ScrollView
 @property (nonatomic,strong) UIScrollView * imageViewBGScrollView;
 @property (nonatomic,strong) UIButton * gotoImagePickerBnt;
+@property (nonatomic,strong) UIButton * gotoVideoPickerBnt;
 //存储图片模型的数组
 @property (nonatomic,strong) NSMutableArray<SHAssetBaseModel *> * imageModelArray;
 @end
@@ -34,11 +35,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.navigationBar.navTitle = @"选照片演示";
+    self.navigationBar.navTitle = @"选照片/视频演示";
     
     [self.view addSubview:self.label];
     [self.view addSubview:self.imageViewBGScrollView];
     [self.view addSubview:self.gotoImagePickerBnt];
+    [self.view addSubview:self.gotoVideoPickerBnt];
 }
 
 
@@ -56,7 +58,7 @@
     }
     [self.imageModelArray removeAllObjects];
     
-    [SHUIImagePickerControllerLibrary goToSHUIImagePickerViewControllerWithMaxImageSelectCount:500 anResultBlock:^(NSMutableArray<SHAssetBaseModel *> *arr) {
+    [SHUIImagePickerControllerLibrary goToSHUIImagePickerViewControllerWithMaxImageSelectCount:500 sourceType:SourceImage anResultBlock:^(NSMutableArray<SHAssetBaseModel *> *arr) {
         
         NSMutableArray * resultArray = [[NSMutableArray alloc] initWithArray:arr];
         [self.imageModelArray addObjectsFromArray:arr];
@@ -86,10 +88,56 @@
                         [self.imageViewBGScrollView addSubview:imageView];
                     });
                 }
-                else if([model isMemberOfClass:[SHAssetVideoModel class]]){
+            }
+        });
+    }];
+}
+
+-(void)gotoVideoBntClicked:(UIButton *)btn{
+    
+    for (UIImageView * imageView in self.imageViewBGScrollView.subviews) {
+        
+        [imageView removeFromSuperview];
+    }
+    [self.imageModelArray removeAllObjects];
+    
+    [SHUIImagePickerControllerLibrary goToSHUIImagePickerViewControllerWithMaxImageSelectCount:500 sourceType:SourceVideo anResultBlock:^(NSMutableArray<SHAssetBaseModel *> *arr) {
+        
+        NSMutableArray * resultArray = [[NSMutableArray alloc] initWithArray:arr];
+        [self.imageModelArray addObjectsFromArray:arr];
+        arr = nil;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            for (NSUInteger i = 0; i < resultArray.count; i++) {
+                
+                SHAssetBaseModel * model = resultArray[i];
+                
+                if ([model isMemberOfClass:[SHAssetImageModel class]]) {
                     
                     SHAssetVideoModel * videoModel = (SHAssetVideoModel *)model;
                     NSLog(@"选中视频路径：%@",videoModel.videoUrl.absoluteString);
+                    
+                    UIImageView * imageView = [[UIImageView alloc] initWithImage:videoModel.thumbnails];
+                    imageView.tag = IMAGEBASETAG + i;
+                    imageView.frame = CGRectMake(i * 95, 5, 90, 90);
+                    imageView.userInteractionEnabled = YES;
+                    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTaped:)];
+                    [imageView addGestureRecognizer:tap];
+                    
+                    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, (CGRectGetHeight(imageView.frame) - 20) / 2, CGRectGetWidth(imageView.frame), 20)];
+                    label.text = @"视频";
+                    label.textAlignment = NSTextAlignmentCenter;
+                    [imageView addSubview:label];
+                    
+                    if (i == resultArray.count - 1) {
+                        
+                        self.imageViewBGScrollView.contentSize = CGSizeMake(resultArray.count * 95, 90);
+                    }
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        [self.imageViewBGScrollView addSubview:imageView];
+                    });
                 }
             }
         });
@@ -128,11 +176,24 @@
         
         _gotoImagePickerBnt = [UIButton buttonWithType:UIButtonTypeCustom];
         _gotoImagePickerBnt.frame = CGRectMake(20, CGRectGetMaxY(self.imageViewBGScrollView.frame), 60, 40);
-        [_gotoImagePickerBnt setTitle:@"去相册" forState:UIControlStateNormal];
+        [_gotoImagePickerBnt setTitle:@"选照片" forState:UIControlStateNormal];
         [_gotoImagePickerBnt setBackgroundColor:[UIColor grayColor]];
         [_gotoImagePickerBnt addTarget:self action:@selector(gotoImagePickerBntClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _gotoImagePickerBnt;
+}
+
+-(UIButton *)gotoVideoPickerBnt{
+    
+    if (!_gotoVideoPickerBnt) {
+        
+        _gotoVideoPickerBnt = [UIButton buttonWithType:UIButtonTypeCustom];
+        _gotoVideoPickerBnt.frame = CGRectMake(CGRectGetMaxX(self.gotoImagePickerBnt.frame) + 20, CGRectGetMaxY(self.imageViewBGScrollView.frame), 60, 40);
+        [_gotoVideoPickerBnt setTitle:@"选视频" forState:UIControlStateNormal];
+        [_gotoVideoPickerBnt setBackgroundColor:[UIColor grayColor]];
+        [_gotoVideoPickerBnt addTarget:self action:@selector(gotoVideoBntClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _gotoVideoPickerBnt;
 }
 
 -(UILabel *)label{
@@ -140,7 +201,7 @@
     if (!_label) {
         
         _label = [[UILabel alloc] initWithFrame:CGRectMake(20, 84, 200, 16)];
-        _label.text = @"图片展示";
+        _label.text = @"图片，视频展示";
         _label.textColor = [UIColor blackColor];
         _label.font = [UIFont systemFontOfSize:14.0];
     }
