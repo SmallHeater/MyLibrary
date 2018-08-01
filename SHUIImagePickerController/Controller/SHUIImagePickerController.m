@@ -10,12 +10,20 @@
 #import "SHAssetImageModel.h"
 #import "SHAssetVideoModel.h"
 
+#import <AssetsLibrary/AssetsLibrary.h>
+//视频存储路径
+#define KVideoUrlPath   \
+[[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"VideoURL"]
+
+
 @interface SHUIImagePickerController ()
 
 //当前相册中的所有图片
 @property (nonatomic,strong) NSMutableArray<SHAssetBaseModel *> * shAssetModelArray;
 //相机模型
 @property (nonatomic,strong) SHAssetImageModel * cameraModel;
+
+@property (nonatomic,strong) NSMutableArray * groupArrays;
 
 @end
 
@@ -28,6 +36,7 @@
     static SHUIImagePickerController * controller = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
         controller = [[SHUIImagePickerController alloc] init];
     });
     return controller;
@@ -41,64 +50,21 @@
     [self.shAssetModelArray removeAllObjects];
     
     __weak __typeof(self)weakSelf = self;
-    PHFetchOptions *allPhotosOptions = [PHFetchOptions new];
-    allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]]; //按照时间倒叙排列
-    
-    //添加去相机模型
-    [self.shAssetModelArray addObject:self.cameraModel];
-    
-    PHAssetMediaType type;
     if (self.sourceType == SourceImage) {
         
-        type = PHAssetMediaTypeImage;
-    }
-    else if (self.sourceType == SourceVideo){
+        //选择图片
+        PHFetchOptions *allPhotosOptions = [PHFetchOptions new];
+        allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]]; //按照时间倒叙排列
+        //添加去相机模型
+        [self.shAssetModelArray addObject:self.cameraModel];
         
-        type = PHAssetMediaTypeVideo;
-    }
-    else if (self.sourceType == SourceAudio){
+        PHFetchResult *allPhotosResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:allPhotosOptions];
         
-        type = PHAssetMediaTypeAudio;
-    }
-    else{
-        
-        type = PHAssetMediaTypeImage;
-    }
-
-    PHFetchResult *allPhotosResult = [PHAsset fetchAssetsWithMediaType:type options:allPhotosOptions];
-    
-    if (allPhotosResult.count > 0) {
-     
-        [allPhotosResult enumerateObjectsUsingBlock:^(PHAsset *asset, NSUInteger idx, BOOL *stop) {
-
-            // 获取一个资源（PHAsset）
-            if (asset.mediaType == PHAssetMediaTypeVideo) {
+        if (allPhotosResult.count > 0) {
+            
+            [allPhotosResult enumerateObjectsUsingBlock:^(PHAsset *asset, NSUInteger idx, BOOL *stop) {
                 
-                PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
-                options.version = PHImageRequestOptionsVersionCurrent;
-                options.deliveryMode = PHVideoRequestOptionsDeliveryModeAutomatic;
-                
-                PHImageManager *manager = [PHImageManager defaultManager];
-                [manager requestAVAssetForVideo:asset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
-                    AVURLAsset *urlAsset = (AVURLAsset *)asset;
-                    
-                    if ([asset isKindOfClass:[AVURLAsset class]]) {
-                     
-                        NSURL *url = urlAsset.URL;
-                        SHAssetVideoModel * videoModel = [[SHAssetVideoModel alloc] init];
-                        videoModel.videoUrl = url;
-                        [weakSelf.shAssetModelArray addObject:videoModel];
-                    }
-                    
-                    if (idx ==  allPhotosResult.count - 1) {
-                        
-                        result(weakSelf.shAssetModelArray);
-                        [weakSelf.shAssetModelArray removeAllObjects];
-                    }
-                }];
-            }
-            else{
-                
+                // 获取一个资源（PHAsset）
                 SHAssetImageModel * mAsset = [[SHAssetImageModel alloc] initWithAsset:asset];
                 [weakSelf.shAssetModelArray addObject:mAsset];
                 if (idx ==  allPhotosResult.count - 1) {
@@ -106,13 +72,58 @@
                     result(weakSelf.shAssetModelArray);
                     [weakSelf.shAssetModelArray removeAllObjects];
                 }
-            }
-        }];
+                else{
+                    
+                    result(weakSelf.shAssetModelArray);
+                    [weakSelf.shAssetModelArray removeAllObjects];
+                }
+            }];
+        }
     }
-    else{
+    else if (self.sourceType == SourceVideo){
         
-        result(weakSelf.shAssetModelArray);
-        [weakSelf.shAssetModelArray removeAllObjects];
+        //选择视频
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            ALAssetsLibraryGroupsEnumerationResultsBlock listGroupBlock = ^(ALAssetsGroup *group, BOOL *stop) {
+                if (group != nil) {
+                    
+                    [weakSelf.groupArrays addObject:group];
+                } else {
+                    
+                    [weakSelf.groupArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                        [obj enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+                            if ([result thumbnail] != nil) {
+                                
+                                if ([[result valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypeVideo] ){
+                                    
+                                    UIImage * thumbnail = [UIImage imageWithCGImage:result.thumbnail];
+                                    
+                                    ALAssetRepresentation * representation = result.defaultRepresentation;
+                                    
+                                    SHAssetVideoModel * videoModel = [[SHAssetVideoModel alloc] init];
+                                    videoModel.thumbnails = thumbnail;
+                                    videoModel.videoUrl = representation.url;
+                                    videoModel.filename = representation.filename;
+                                    videoModel.size = representation.size;
+                                    [weakSelf.shAssetModelArray addObject:videoModel];
+                                    
+                                }
+                            }
+                        }];
+                    }];
+                    
+                    //栅栏
+                    dispatch_barrier_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                        
+                        result(weakSelf.shAssetModelArray);
+                        [weakSelf.shAssetModelArray removeAllObjects];
+                    });
+                }
+            };
+            ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc]  init];
+            [assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll
+                                         usingBlock:listGroupBlock failureBlock:nil];
+        });
     }
 }
 
@@ -186,6 +197,49 @@
     }];
 }
 
+// 将原始视频的URL转化为NSData数据,写入沙盒
+- (void)videoWithUrl:(NSURL *)url withFileName:(NSString *)fileName
+{
+    // 解析一下,为什么视频不像图片一样一次性开辟本身大小的内存写入?
+    // 想想,如果1个视频有1G多,难道直接开辟1G多的空间大小来写?
+    // 创建存放原始图的文件夹--->VideoURL
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:KVideoUrlPath]) {
+        [fileManager createDirectoryAtPath:KVideoUrlPath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    ALAssetsLibrary *assetLibrary = [[ALAssetsLibrary alloc] init];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (url) {
+            [assetLibrary assetForURL:url resultBlock:^(ALAsset *asset) {
+                ALAssetRepresentation *rep = [asset defaultRepresentation];
+                NSString * videoPath = [KVideoUrlPath stringByAppendingPathComponent:fileName];
+                const char *cvideoPath = [videoPath UTF8String];
+                FILE *file = fopen(cvideoPath, "a+");
+                if (file) {
+                    const int bufferSize = 11024 * 1024;
+                    // 初始化一个1M的buffer
+                    Byte *buffer = (Byte*)malloc(bufferSize);
+                    NSUInteger read = 0, offset = 0, written = 0;
+                    NSError* err = nil;
+                    if (rep.size != 0)
+                    {
+                        do {
+                            read = [rep getBytes:buffer fromOffset:offset length:bufferSize error:&err];
+                            written = fwrite(buffer, sizeof(char), read, file);
+                            offset += read;
+                        } while (read != 0 && !err);//没到结尾，没出错，ok继续
+                    }
+                    // 释放缓冲区，关闭文件
+                    free(buffer);
+                    buffer = NULL;
+                    fclose(file);
+                    file = NULL;
+                }
+            } failureBlock:nil];
+        }
+    });
+}
+
 //清理内存(本模块生命周期结束时调用)
 -(void)clearMemary{
 
@@ -212,5 +266,13 @@
     return _cameraModel;
 }
 
+-(NSMutableArray *)groupArrays{
+    
+    if (!_groupArrays) {
+        
+        _groupArrays = [[NSMutableArray alloc] init];
+    }
+    return _groupArrays;
+}
 
 @end

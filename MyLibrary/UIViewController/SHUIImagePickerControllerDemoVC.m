@@ -10,7 +10,7 @@
 #import "SHUIImagePickerControllerLibrary.h"
 #import "SHNavigationBar.h"
 #import "SHBigPictureBrowser.h"
-
+#import <AVKit/AVKit.h>
 
 #define IMAGEBASETAG 1100
 
@@ -101,7 +101,7 @@
     }
     [self.imageModelArray removeAllObjects];
     
-    [SHUIImagePickerControllerLibrary goToSHUIImagePickerViewControllerWithMaxImageSelectCount:500 sourceType:SourceVideo anResultBlock:^(NSMutableArray<SHAssetBaseModel *> *arr) {
+    [SHUIImagePickerControllerLibrary goToSHUIImagePickerViewControllerWithMaxImageSelectCount:1 sourceType:SourceVideo anResultBlock:^(NSMutableArray<SHAssetBaseModel *> *arr) {
         
         NSMutableArray * resultArray = [[NSMutableArray alloc] initWithArray:arr];
         [self.imageModelArray addObjectsFromArray:arr];
@@ -113,7 +113,7 @@
                 
                 SHAssetBaseModel * model = resultArray[i];
                 
-                if ([model isMemberOfClass:[SHAssetImageModel class]]) {
+                if ([model isMemberOfClass:[SHAssetVideoModel class]]) {
                     
                     SHAssetVideoModel * videoModel = (SHAssetVideoModel *)model;
                     NSLog(@"选中视频路径：%@",videoModel.videoUrl.absoluteString);
@@ -122,7 +122,7 @@
                     imageView.tag = IMAGEBASETAG + i;
                     imageView.frame = CGRectMake(i * 95, 5, 90, 90);
                     imageView.userInteractionEnabled = YES;
-                    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTaped:)];
+                    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(videoTaped:)];
                     [imageView addGestureRecognizer:tap];
                     
                     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, (CGRectGetHeight(imageView.frame) - 20) / 2, CGRectGetWidth(imageView.frame), 20)];
@@ -166,6 +166,25 @@
         
         
     }
+}
+//视频被点击
+-(void)videoTaped:(UIGestureRecognizer *)ges{
+    
+   
+        
+    SHAssetVideoModel * playVideoModel = (SHAssetVideoModel *)self.imageModelArray[0];
+    //视频
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        AVPlayerViewController * vc = [[AVPlayerViewController alloc] init];
+        AVPlayerItem *playItem = [[AVPlayerItem alloc] initWithURL:playVideoModel.videoUrl];
+        //初始化AVPlayer
+        vc.player = [[AVPlayer alloc] initWithPlayerItem:playItem];
+        //开始播放(请在真机上运行)
+        [vc.player play];
+        vc.showsPlaybackControls = YES;
+        [[self parentViewController] presentViewController:vc animated:YES completion:nil];
+    });
 }
 
 #pragma mark  ----  懒加载

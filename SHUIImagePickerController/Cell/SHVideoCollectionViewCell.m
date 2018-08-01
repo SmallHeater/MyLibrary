@@ -37,9 +37,7 @@
         
         _playImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.frame.size.width - 20) / 2, (self.frame.size.height - 20) / 2, 20, 20)];
         _playImageView.image = [UIImage imageNamed:@"SHUIImagePickerControllerLibrarySource.bundle/paly.tiff"];
-        _playImageView.contentMode = UIViewContentModeScaleAspectFill;
         _playImageView.clipsToBounds = YES;
-        _playImageView.backgroundColor = [UIColor grayColor];
     }
     return _playImageView;
 }

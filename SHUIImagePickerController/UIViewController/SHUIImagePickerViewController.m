@@ -196,6 +196,7 @@
         
         //视频资源
         SHVideoCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"SHVideoCollectionViewCell" forIndexPath:indexPath];
+        cell.imageView.image = model.thumbnails;
         cell.selectBtn.hidden = NO;
         [cell.selectBtn setSelected:model.selected];
         cell.selectBtn.tag = CELLSELECTBTNBASETAG + indexPath.row;

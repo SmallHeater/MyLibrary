@@ -15,10 +15,8 @@
 //路径
 @property (nonatomic,strong) NSURL * videoUrl;
 
-
-/**
- *  缩略图（默认尺寸kThumbnailTargetSize)
- */
-@property (nonatomic, strong,nonnull) UIImage * thumbnails;
+@property (nonatomic,strong) NSString * filename;
+//大小
+@property (nonatomic,assign) long long size;
 
 @end

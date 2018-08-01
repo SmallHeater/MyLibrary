@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SHUIImagePickerController/UIViewController/SHUIImagePickerViewController.m"
-            timestampString = "553851623.272804"
+            timestampString = "554786168.531922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "-imagePickerController:didFinishPickingImage:editingInfo:"
             landmarkType = "7">
          </BreakpointContent>
