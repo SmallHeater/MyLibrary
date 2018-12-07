@@ -234,10 +234,50 @@
                     buffer = NULL;
                     fclose(file);
                     file = NULL;
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        NSLog(@"视频大小：%lf",[self getFileSize:videoPath]);
+                        
+                        AVAsset *asset = [AVAsset assetWithURL:url];
+                        //设置压缩质量
+                        AVAssetExportSession *session = [[AVAssetExportSession alloc] initWithAsset:asset presetName:AVAssetExportPresetMediumQuality];
+                        // 创建导出的url
+                        NSString *docuPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+                        NSString *resultPath = [docuPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.MOV",fileName]];
+                        session.outputURL = [NSURL fileURLWithPath:resultPath];
+                        // 必须配置输出属性
+                        session.outputFileType = @"com.apple.quicktime-movie";
+                        // 导出视频
+                        [session exportAsynchronouslyWithCompletionHandler:^{
+                            
+                            NSLog(@"新：视频大小:%lf",[self getFileSize:resultPath]);
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                
+                                //上传
+//                                [self uploadWithPath:resultPath fileName:fileName];
+                            });
+                        }];
+                        
+                        //                        [self uploadWithPath:videoPath fileName:fileName];
+                    });
                 }
             } failureBlock:nil];
         }
     });
+}
+
+// 获取视频的大小
+- (CGFloat)getFileSize:(NSString *)path
+{
+    NSFileManager *fileManager = [[NSFileManager alloc] init] ;
+    float filesize = -1.0;
+    if ([fileManager fileExistsAtPath:path]) {
+        NSDictionary *fileDic = [fileManager attributesOfItemAtPath:path error:nil];//获取文件的属性
+        unsigned long long size = [[fileDic objectForKey:NSFileSize] longLongValue];
+        filesize = 1.0*size/1024;
+    }
+    return filesize;
 }
 
 //清理内存(本模块生命周期结束时调用)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6208AC0C21132609004D7360 /* ELCVFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6208AC0B21132609004D7360 /* ELCVFlowLayout.m */; };
 		62325B40210ABBFC00F1A825 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62325B3F210ABBFC00F1A825 /* PlayViewController.m */; };
 		624E117820F454FD003BDE9D /* SHAlertControllerConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 624E117720F454FD003BDE9D /* SHAlertControllerConfigurationModel.m */; };
 		624E117B20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 624E117A20F4561A003BDE9D /* SHUIAlertActionConfigurationModel.m */; };
@@ -298,6 +299,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6208AC0A21132609004D7360 /* ELCVFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCVFlowLayout.h; sourceTree = "<group>"; };
+		6208AC0B21132609004D7360 /* ELCVFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELCVFlowLayout.m; sourceTree = "<group>"; };
 		62325B3E210ABBFC00F1A825 /* PlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
 		62325B3F210ABBFC00F1A825 /* PlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
 		624E117620F454FD003BDE9D /* SHAlertControllerConfigurationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHAlertControllerConfigurationModel.h; sourceTree = "<group>"; };
@@ -1125,6 +1128,8 @@
 				62D4E528206E232F0063491A /* BigPictureBrowsing.m */,
 				624E117D20F4AEC5003BDE9D /* BigPictureBrowsingView.h */,
 				624E117E20F4AEC5003BDE9D /* BigPictureBrowsingView.m */,
+				6208AC0A21132609004D7360 /* ELCVFlowLayout.h */,
+				6208AC0B21132609004D7360 /* ELCVFlowLayout.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1761,6 +1766,7 @@
 				62D4E52C206E232F0063491A /* BigPictureBrowsing.m in Sources */,
 				624E117F20F4AEC5003BDE9D /* BigPictureBrowsingView.m in Sources */,
 				62D4E52D206E232F0063491A /* SHBigPictureBrowser.m in Sources */,
+				6208AC0C21132609004D7360 /* ELCVFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,7 +35,7 @@
     // Do any additional setup after loading the view.
     
     
-    self.sourceUrl = @"https://testfileserver.iuoooo.com/Jinher.JAP.BaseApp.FileServer.UI/FileManage/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f9556%2F2018072710%2F2af605c6-b7e4-436e-841a-ade4b63f86a0_IMG_0397.MOV";
+    self.sourceUrl = @"https:\/\/testfileserver.iuoooo.com\/Jinher.JAP.BaseApp.FileServer.UI\/FileManage\/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f9556%2F2018080210%2F95a265f0-3f25-475c-ac62-f37e43202fbe_IMG_0397.MP4";
     
     
     AVPlayerViewController * vc = [[AVPlayerViewController alloc] init];
@@ -43,6 +43,11 @@
     vc.view.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
     vc.showsPlaybackControls = YES;
     [self presentViewController:vc animated:YES completion:nil];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+       
+        [vc.player play];
+    });
     
     /*
     
@@ -82,7 +87,7 @@
         //播放
         [self.moviePlayer play];
     });
-     */
+    */
 }
 
 - (void)didReceiveMemoryWarning {
@@ -182,6 +187,7 @@
     if (!_moviePlayer) {
         
         _moviePlayer = [[MPMoviePlayerController alloc]initWithContentURL:[NSURL URLWithString:self.sourceUrl]];
+        _moviePlayer.controlStyle = MPMovieControlStyleDefault;
         _moviePlayer.view.frame = CGRectMake(0, 64, SCREENWIDTH, SCREENHEIGHT);
         _moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         _moviePlayer.movieSourceType = MPMovieSourceTypeStreaming;

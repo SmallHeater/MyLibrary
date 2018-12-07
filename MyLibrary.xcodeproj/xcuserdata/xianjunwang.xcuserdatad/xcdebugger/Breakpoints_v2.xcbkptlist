@@ -84,12 +84,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SHUIImagePickerController/UIViewController/SHUIImagePickerViewController.m"
-            timestampString = "554786168.531922"
+            timestampString = "554901560.362263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "259"
             endingLineNumber = "259"
             landmarkName = "-imagePickerController:didFinishPickingImage:editingInfo:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SHBigPictureBrowser/UIView/BigPictureBrowsing.m"
+            timestampString = "554900171.435317"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "-initWithFrame:andImageArray:andSelectedIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
